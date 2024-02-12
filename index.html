@@ -1,0 +1,2540 @@
+<b>Summary</b><br>
+Table 192. Summary of the EKG_UnlockAll Function
+<blockquote>
+<table rules="rows">
+<tr><th>Function</th> <th>Setting</th></tr>
+	<tr><td>Function ID </td><td>2003</td></tr>
+	<tr><td>Type</td><td>Method API Service</td></tr>
+	<tr><td>User API</td><td>No</td></tr>
+	<tr><td>Object-specific method</td><td>No</td></tr>
+	
+	<tr><td>Initialization method</td><td>Yes</td></tr>
+	<tr><td>Methods triggered </td><td>No</td></tr>
+	<tr><td>Triggered by EKG_MessageTriggeredAction<br>
+function</td><td>No</td></tr>
+	<tr><td>Authorization</td><td>None</td></tr>
+	</table></blockquote>
+
+
+<h1>EKG_WhereAmI - Where Am I</h1><blockquote>
+<h3>Purpose</h3>
+	This function returns the class, object, field, and subfield to which the method
+name is assigned and the context in which the object-specific method is being run.
+	<h3>Function Block Format</h3>
+	Table 193. Function Block for the EKG_WhereAmI Function.
+	<br><table><tr></tr>
+	<th>Offset</th><th>Length </th><th>Type </th><th>Use </th><th>Parameter Name</th><br></table><td>000</td><td>4</td><td>Integer</td><td>In </td><td>Function_ID</td></table>
+See “Function Parameter Descriptions” on page 452 for more information about the
+parameters listed. See “Abstract Data Type Reference” on page 219 for more
+information about the abstract data types listed.
+<h3>Examples</h3>
+<i>Table 191. Example Names for the EKG_UnlockAll Function</i>
+<table rules="rows">
+
+	<tr><th>Offset</th><th>Length</th><th>Type</th><th>Use</th><th>Parameter Name</th></tr>
+	<tr><td>000</td><td>4</td><td>Integer</td><td>In</td><td>Function_ID</td></tr>
+</table>
+Table 194. Response Block for the EKG_WhereAmI Function
+<table rules="rows">
+<tr><th>Offset</th><th>Length</th><th>Type</th><th>Use</th><th>Parameter Name</th></tr>
+	<tr><td>000</td><td>4</td><td>Integer</td><td>In</td><td>Response_block_length</td></tr>
+	<tr><td>004</td><td>4</td><td>Integer</td><td>Out</td><td>Response_block_used</td></tr>
+	
+</table>
+<h3>Examples</h3>
+Table 195. Example Names for the EKG_WhereAmI Function.
+<table rules="rows">
+	<tr><th>Example</th><th>Name</th></tr>
+	<tr><td>PL/I function block</td><td>EKG12007</td></tr>
+	<tr><td>PL/I response block</td><td>EKG22007</td></tr>
+	<tr><td>PL/I usage coding </td><td>EKG52007</td></tr>
+	<tr><td>C function block</td><td>EKG32007</td></tr>
+	<tr><td>C response block</td><td>EKG42007</td></tr>
+	<tr><td>C usage coding</td><td>EKG62007</td></tr>
+</table>
+<h3>Summary</h3>
+<p>Table 196. Summary of the EKG_WhereAmI Function</p>
+<table rules="rows">
+	<tr><th>Function ID</th><th>Setting</th></tr>
+	<tr><td>Type</td><td>2007</td></tr>
+	<tr><td>User API</td><td>Method API Service</td></tr>
+	<tr><td>Object-specific method</td><td>No</td></tr>
+	<tr><td>Object-independent method</td><td>Yes</td></tr>
+	<tr><td>Initialization method</td><td>No</td></tr>
+	<tr><td>Methods triggered</td><td>No</td></tr>
+	<tr><td>Triggered by EKG_MessageTriggeredAction
+function</td><td>No</td></tr>
+	<tr><td>Authorization</td><td>None</td></tr></table><br>
+<h3>Usage</h3>
+The Subfield parameter indicates the type of method. The Subfield parameter is set
+to 1 for named methods.<br>
+The Object_ID parameter is set to null if the method is defined on a class.
+
+
+</blockquote>
+<hr>
+<h3>Function Parameter Descriptions</h3><blockquote>
+<h4>Bit_map</h4>
+<blockquote>
+A bit map of flags describing a field. Bit_map is made up of the
+Private_public_flag and Local_inherited_flag.
+	</blockquote>
+<h4>Change_status</h4><blockquote>
+	The Change_status parameter is used to inform a method whether or not the
+value of a field has changed.
+	</blockquote>
+<h4>	Class_access_info_ptr</h4><blockquote>
+	The Class_access_info_ptr is a pointer to an entity access information block
+where only the class information is used by this function call. The object
+information in that access block must be set to null values if the naming_count
+information is set to zero.
+	</blockquote>
+<h4>Class_ID</h4>
+<blockquote>The class identifier</blockquote>
+<h4>Class_name</h4><blockquote>The name of the class this function acts on.</blockquote>
+</blockquote>
+<h4>Concat_of_strings</h4><blockquote>A response data string of the Anonymous type. The string is a concatenation of
+zero or more SelfDefining data strings.</blockquote>
+<h4>Correlation_ID</h4><blockquote>The unique ID of a transaction assigned by RODM.</blockquote>
+<h4>Data</h4><blockquote>The data returned by the RODM function. This data is of type Data_type. For
+the Data parameter of an overflow block, the data type is specified in the
+original response block for the function that caused the overflow.</blockquote>
+<h4>Data_to_be_returned</h4><blockquote>The Data_to_be_returned parameter must be set by the caller to point at
+whatever is to be concatenated into the data area of the response block.</blockquote>
+<h4>Data_type</h4><blockquote>The RODM abstract data type of the specified parameter</blockquote>
+<h4>Entity_access_info_ptr</h4><blockquote>Pointer to the entity access information block that specifies the entity this
+function acts on.</blockquote>
+<h4>Entity_access_info_ptr_1</h4><blockquote>The pointer to the entity access information block that specifies the first entity
+this function acts on.</blockquote>
+<h4>Entity_access_info_ptr_2</h4><blockquote>The pointer to the entity access information block that specifies the second
+entity this function acts on.</blockquote>
+<h4>Field_access_info_ptr</h4><blockquote>The pointer to the field access information block that specifies the field of the
+object this function acts on.</blockquote>
+<h4>Field_access_info_ptr_1</h4><blockquote>The pointer to the field access information block that specifies the field of the
+first object this function acts on.</blockquote>
+<h4>Field_ID</h4><blockquote>The field identifier.</blockquote>
+<h4>Field_info_array</h4><blockquote>For EKG_QueryEntityStructure, an array of parameters describing the fields
+that make up an object or a class. For EKG_QueryMultipleSubfields, an array
+of fields whose value subfields will be queried.</blockquote>
+<h4>Field_info_count</h4><blockquote>The number of fields in Field_info_array.</blockquote>
+<h4>Field_info_element_size</h4><blockquote>The size of each element of Field_info_array.</blockquote>
+<h4>Field_name</h4><blockquote>The name of the field. Variable length field with maximum length 67 bytes.</blockquote>
+<h4>Field_type_flag</h4><blockquote>A Field_type_flag specifies whether the new field is to be public, private, or
+public-indexed. Valid values are:</blockquote>
+<ol>
+	<h4>Value Meaning</h4>
+<li> Public<br></li>
+	<li> Private<br></li>
+	<li>Public-indexed<br></li></ol>
+<h4>Function_block_copy</h4><blockquote>A copy of the queried function block. The Function_block_copy parameter
+contains a copy of the function block for the function that triggered the
+executing method.</blockquote>
+<h4>Function_block_origin</h4><blockquote>The Function_block_origin parameter specifies whether the originating function
+was called by a user application or by a method. Valid values are:</blockquote>
+<ol>
+Value  Meaning
+	<li>User application</li>
+	<li>  Method</li>
+</ol>
+<h4>Function_block_ptr</h4><blockquote>The pointer to the function block for a function to be run. See the description
+of the specific function for the format of the function block.</blockquote>
+<h4>Function_ID</h4><blockquote>The function ID that identifies this function to RODM.</blockquote>
+<h4>Function_info_array</h4>
+<blockquote>The array of functions to be run.</blockquote>
+<h4>Indexed_data_length</h4><blockquote>Length of the indexed data that RODM is attempting to locate.</blockquote>
+<h4>Indexed_data_ptr</h4><blockquote>Pointer to the indexed data that RODM is attempting to locate. Indexed data is
+of type CharVar or IndexList. Indexed_data_ptr must point to the first byte of
+the character data of a CharVar data value or an individual IndexList data
+item. The length of the character string must be specified in
+Indexed_data_length</blockquote>
+<h4>Inheritance_state</h4><blockquote>The value of this field is always 1.</blockquote>
+<h4>Last_checkpoint_ID</h4><blockquote>The transaction ID of the last checkpoint request. The Last_checkpoint_ID is set
+to zero when RODM is cold-started.</blockquote>
+<h4>Local_copy_map</h4><blockquote>The Local_copy_map is a bit map defined as follows (bits are numbered 1–32
+from left to right). RODM sets a Local_copy_map bit to 1 in an output block to
+indicate that the corresponding subfield contains locally-defined data.</blockquote>
+<ol>
+Bit&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  Subfield
+	<li>Value</li>
+	<li>Query</li>
+	<li>Change</li>
+	<li>Notify</li>
+	<li>Prev_val</li>
+	<li>Timestamp</li>
+	<li>-32  Reserved</li>
+</ol>
+<h4>Local_inherited_flag</h4>
+A flag that specifies whether a field is locally defined or is inherited from a
+parent class. Valid values are<br>
+<ol>
+Value Meaning
+	<li>Locally defined</li>
+<li>Inherited</li>
+
+</ol>
+<h4>Log_message</h4>
+<blockquote>
+The Log_message parameter points to the character string to be written to the
+RODM log. This is an AnonymousVar string of a maximum 32709 bytes.</blockquote>
+<h4>Message_CCSID</h4><blockquote>The Message_CCSID value identifies the code page and character set definition
+used for the string pointed to by Log_message. This value can be used by
+applications which process the RODM log data set.</blockquote>
+<h4>Method_name</h4><blockquote>The name of the method that this function triggers or the name of the method
+that put this notification block on the notification queue.</blockquote>
+<h4>Method_output_message</h4>
+<blockquote>A pointer to the data that is placed on the notification queue by the calling
+method and is passed to the user application. The maximum length of the
+message is 32767 bytes.</blockquote>
+<h4>Method_parms</h4><blockquote>The pointer to the short-lived parameters passed to a method. The short-lived
+parameters are passed to the notification method associated with the object the
+function acts on. For the EKG_SwapField function, the short-lived parameters
+are also passed to the change method. For the EKG_QueryField function, the
+short-lived parameters are passed to the query method instead of the
+notification method. For the EKG_TriggerNamedMethod and
+EKG_TriggerOIMethod functions, the short-lived parameters are passed to the
+method being triggered.</blockquote>
+
+<h4>New_char_data_length</h4><blockquote>The length of the new data for data types CharVar and GraphicVar. This
+parameter is ignored for other data types. The data pointed to must be the first
+byte of the character data and the length must be specified in the
+New_Char_data_length parameter.</blockquote>
+<h4>New_data_ptr</h4><blockquote>The pointer to the new data that is to replace the value of the target field.</blockquote>
+<h4>Notification_queue</h4><blockquote>The Notification_queue specified by the function. See “RODM Notification
+Process” on page 323.</blockquote>
+<h4>Notification_queue_count</h4><blockquote>The number of notification blocks on the notification_queue before this
+function acts on the queue.</blockquote>
+<h4>Notify_method</h4><blockquote>The object ID of the notification method that is associated with this notification
+subscription.</blockquote>
+<h4>Number_of_fields</h4><blockquote>A value that specifies the number of fields to be changed.</blockquote>
+<h4>Number_of_functions</h4><blockquote>A value that specifies the number of functions to be run. You specify one
+element of Function_information_array for each function.</blockquote>
+<h4>Number_of_subfields</h4><blockquote>A value that specifies the number of value subfields to be queried. You specify
+one element of Field_info_array for each query.</blockquote>
+<h4>Object_array</h4><blockquote>The array of objects this function acts on.</blockquote>
+<h4>Object_ID</h4><blockquote>The object identifier of the object this function acts on, or one element of
+Object_array of objects this function acts on.</blockquote>
+<h4>Object_list_length</h4><blockquote>The number of objects in the array.</blockquote>
+<h4>Object_name</h4><blockquote>The name of the object this function acts on.</blockquote>
+
+<h4>Old_char_data_length</h4><blockquote>The length of the old data if the data type of the old data is CharVar or
+GraphicVar. This parameter is ignored for other data types.</blockquote>
+<h4>Old_data_ptr</h4><blockquote>The pointer to the old data.</blockquote>
+<h4>Private_public_flag</h4><blockquote>The Private_public_flag specifies whether a field is private (not inherited by its
+children) or public (inherited by its children). Valid values are:</blockquote>
+
+<ol>
+Value Meaning
+	<li>Public</li>
+	<li>Private</li>
+</ol>
+<h4>Parent_access_info_ptr</h4><blockquote>The Parent_access_info_ptr is the pointer to an entity access information block
+where only the class information is used by this function call. The object
+information in that access block must be set to null values if the Naming_count
+information is set to zero.</blockquote>
+<h4>Reason_code</h4><blockquote>The reason code from RODM</blockquote>
+<h4>Requesting_method_ID</h4><blockquote>The method Object_ID of the current method object.</blockquote>
+<h4>Response_block_length</h4><blockquote>The length in bytes of the response block supplied by the method or
+application using this function. This value must include 8 bytes for the
+Response_block_length and Response_block_used parameters.</blockquote>
+
+<h4>Response_block_reference</h4><blockquote>The pointer set by RODM to the address within the response of the first byte
+of returned data for this function. This parameter is set to zero when no data is returned. One common response block is shared by all operations originating
+from a single user API call. These interactions include any that are specified in
+an EKG_ExecuteFunctionList or EKG_QueryMultipleSubfields function call.</blockquote>
+<h4>Response_block_type</h4><blockquote>The response_type_block specifies whether a notification block was generated
+by a notification method or by an object-deletion subscription. Valid values are:</blockquote>
+<ol>
+Value Meaning
+	<li>Generated by a notification method</li>
+	<li>Generated when an object was deleted and an object-deletion
+subscription existed for that object</li>
+</ol>
+<h4>Response_block_used</h4><blockquote>The length in bytes of the data returned by RODM. If the response block
+supplied by the method or application is too small to hold the data that is to
+be returned, the value of Response_block_used is set to the size that the
+response block was in order to hold the data. This value is larger than the
+value of Response_block_length and includes 8 bytes for the
+Response_block_length and Response_block_used parameters. This parameter
+is set to zero when no data is returned.<br>
+If a transaction provides response block data and does not cause a response
+block overflow, the Response_block_used parameter is less than or equal to the
+Response_block_length parameter. If the transaction does cause a response
+block overflow, the Response_block_used parameter is greater than the
+	Response_block_length parameter.</blockquote>
+<h4>Response_data</h4><blockquote>The area in an EKG_ExecuteFunctionList response block that contains the data
+returned by query functions. Use Response_block_reference pointers (see
+above) in the function block to retrieve the data for individual functions. The
+format is the same as that following the 8-byte header in the normal response
+block for the function.</blockquote>
+<h4>Return_code</h4><blockquote>The Return_code and Reason_code values indicate status of this particular
+function request. The highest numeric value is duplicated in the
+Transaction_info_block parameter for of the EKGUAPI call. If there is a tie for
+the worst error, the first among the worst is reported.</blockquote>
+<h4>Stop_ECB</h4><blockquote>The parameter used to notify users that the current version of RODM is
+stopping in response to either an operator request or an API request. If a user
+application calls EKGWAIT, this ECB must always be included in the list.</blockquote>
+<h4>Stop_type</h4><blockquote>Specify Stop_type of 1 to stop RODM after it has quiesced and performed a
+checkpoint operation. Specify Stop_type of 2 to stop RODM after it has
+quiesced without performing a final checkpoint operation.</blockquote>
+<h4>Subfield</h4><blockquote>Identifies the specific subfield for this function. Valid values for all functions
+except EKG_WhereAmI are:</blockquote>
+<ol>
+Value  Subfield
+	<li>All subfields except Notify (valid only for EKG_RevertToInherited
+function</li>
+	<li>Value</li>
+	<li>Query</li>
+	<li>Change</li>
+	<li>Notify</li>
+	<li>Prev_val</li>
+	<li>Timestamp</li>
+</ol>
+<blockquote>Valid values for the EKG_WhereAmI function are:
+<h4>Value Subfield</h4>
+	<ol>
+	<li>Value (method must be named method)</li>
+	<li>Query</li>
+	<li>Change</li>
+		<li>Notify (notification method)</li></ol>
+	
+	<h4>Subfield_map</h4>
+	
+	The Subfield_map is a bit map defined as follows (bits are numbered 0–31
+from left to right). Setting a bit to 1 specifies that the function acts on that
+subfield. RODM sets a Subfield_map bit to 1 in an output block to indicate
+that the corresponding subfield exists.<br>
+	<table>	<tr><th>Bit</th><th>Subfield</th></tr></table>
+	<tr><td>0</td><td>Value</td></tr>
+	<tr><td>1</td><td>Query</td></tr>
+	<tr><td>2</td><td>Change</td></tr>
+	<tr><td>3</td><td>Notify</td></tr>
+	<tr><td>4</td><td>Prev_val</td></tr>
+	<tr><td>5</td><td>Timestamp</td></tr>
+	<tr><td>6-31</td><td>Reserved (must be set to zero)</td></tr>
+	<h4>Subscription_info</h4><blockquote>
+	Specifies the notification subscription this function acts on. Subscription_info is
+defined as data type RecipientSpec and contains the User_appl_ID and
+Notification_queue for the specified subscription.</blockquote>
+	<h4>User_appl_ID</h4>
+	<blockquote>If the User_appl_ID parameter in the function block is set to the null value
+(blank) for this field, RODM will default to the User_appl_ID value defined in
+the Access_block that starts this transaction. For a subscription notification, the
+User_appl_ID parameter specifies the application which is being notified. If a
+method initiated through the message interface specifies a null User_appl_ID,
+the name supplied by RODM is that which was specified in the Access_block
+which originally issued the message transaction.<br>
+	For an APF (authorized program facility) authorized program, the
+User_password does not need to be specified. The User_appl_ID without the
+User_password identifies the user to RODM and determines the user's
+authority level. For application programs that are not APF authorized, the
+User_password is required. The User_appl_ID and the User_password are
+combined to identify the user to RODM, and to determine the user's authority
+level using the EKG_Connect or EKG_ConnectLong function.</blockquote>
+	<h4>User_password</h4><blockquote>For application programs that are not APF authorized, both the User_appl_ID
+and the User_password are required to be specified in the RODM access block
+to validate the user authority level and to connect to RODM. The validated
+User_appl_ID is used by RODM to determine the specific level of access
+authority granted to the user. This parameter is a maximum of 8 bytes with
+shorter values left justified in the parameter and padded on the right with
+blanks.<br>In performing the validation of the User_appl_ID and User_password for
+programs that are not APF authorized, RODM uses the RACROUTE interfaces
+on z/OS systems. The user ID, password and access authorization level are
+assumed to have been registered to the security manager supporting those
+interfaces.<br>If a User_appl_ID is specified, the User_password value must be valid for
+programs that are not APF authorized. If the User_appl_ID parameter in the
+Access_block is all blanks, both for programs that are APF authorized and for
+programs that are not APF authorized, the User_password field is ignored. A
+system authorization facility (SAF) product such as Resource Access Control
+Facility (RACF), attempts to associate an authorized user ID with this function
+call. If that user ID is not located, the connection request is rejected. If a
+verified user ID is found, it is put into the User_appl_ID parameter of the
+Access_block.</blockquote>
+	<h4>User_area</h4><blockquote>A data area containing the data supplied by the method that put the
+notification block on the notification queue.</blockquote>
+	<h4>User_word</h4><blockquote>The User_word parameter is intended to be the information passed to the
+notification method through the invocation parameters. The parameter is set by
+the caller in the function block used by the EKG_AddNotifySubscription
+function, saved with the subscription request in RODM, made available to a
+notification method as a passed parameter, and is assumed to be passed to the
+notification function unmodified when notification takes place. The notification
+method determines the final value for User_word.</blockquote>
+	
+	<h4>Value_for_reason_code</h4><blockquote>The reason code passed to the caller of the method.</blockquote>
+	<h4>Value_for_return_code</h4><blockquote>The return code passed to the caller of the method.</blockquote>
+		
+</blockquote>
+<hr>
+<h2>RODM Return and Reason Codes</h2>
+<blockquote>For each function call you make to RODM, the RODM program issues a return
+code and reason code. The reason code gives you more specific information about
+the possible cause of a problem.<br>The following four sections describe the possible reason codes for each of the four
+return codes. The tables provide explanations and suggested corrective actions.
+“List of Reason Codes for Each Function” on page 478 and “List of Functions for
+Each Reason Code” on page 480 provide a cross-reference so that you can
+determine the codes that are issued for any particular function call you use. “List
+of Reason Codes from Supplied Methods” on page 487 lists the reason codes
+returned by the methods that are supplied with the NetView program.
+Reason codes can fall into one of three ranges based on which program or method
+issued the reason code:<br>
+<h4>Range Issued By</h4>
+0–32767<br><blockquote>RODM application programming interfaces</blockquote>
+	32768–49151<br><blockquote>Methods that are supplied with the NetView program</blockquote>
+49152–65535<br><blockquote>Customer-written methods</blockquote>
+	If you write methods that issue reason codes, use reason codes in the range
+49152–65535<br>Reason codes in the range 32781–32996 are issued by the EKGCTIM, EKGMIMV,
+EKGNEQL, EKGNLST, EKGNOTF, EKGNTHD, and FLBTRNMM methods that are
+supplied with the NetView program. These reason codes are issued when the
+method receives an error or warning from a RODM transaction. Subtract 32780
+from the reason code issued by the method to get the original value issued by
+RODM for the transaction. You can then look up the original value in the
+following tables. The methods issue the return code for the transaction without
+change.<br>Reason codes in the range 32810–32904 are issued by the EKGSPPI method when it
+receives an error from the program-to-program interface module CNMCNETV. The
+reason code issued is 32809 plus the return code from CNMCNETV. Subtract 32809
+from the reason code issued by the EKGSPPI method. The result is the return code
+from CNMCNETV. See the IBM Tivoli NetView for z/OS Application Programmer's
+Guide for the meaning of this return code.<br>
+	Writers of methods must be aware of the implications of issuing return and reason
+codes from methods. See “Error Conditions in Transactions” on page 321 for
+information about how an application might interpret reason and return codes that
+are returned by methods.<br>
+	<i>The IBM Tivoli NetView for z/OS Troubleshooting Guide</i>contains additional
+information about troubleshooting RODM problems, especially abend problems.<br>
+	<h2>Reason Codes for Return Code 0</h2>
+	Table 197 describes the reason codes that are returned with return code 0. 
+</blockquote>
+	<b>Reason</b>
+	<table rules="rows">
+		<tr><th>Code</th><th>DescriptionDescription</th><th>Corrective Action</th></tr>
+		<tr><td>0</td><td>The system successfully performs the requested
+function.</td><td>None</td></tr>
+	<tr><td>26</td><td>The new data value is the same as the old data
+value. If a local copy did not previously exist for
+the field, one is created</td><td>None</td></tr>
+	<tr><td>48</td><td>Not used.</td><td>None</td></tr>
+	<tr><td>142</td><td>The system performs the request successfully and
+a local copy is created.</td><td>None</td></tr>
+	
+	<tr><td>143</td><td>The system performs the request successfully and
+		the returned value is an inherited value</td><td>None</td></tr>
+		<tr><td>167</td><td>Not used.</td><td>None</td></tr>
+	<tr><td>180</td><td>The user object will not be deleted when the user
+disconnects from RODM. The possible cause is
+that links from the user object to the queue object
+are not removed because the StopMode specifies
+to keep the queue objects.</td><td>None</td></tr>
+	<tr><td>185</td><td>The Disconnect is successful. The user object is not
+deleted from RODM because links to Notification
+Queue objects still exist</td><td>Try to connect and disconnect again.</td></tr>
+		<tr><td>32769</td><td>Compared data values do not match.</td><td>Specify the value subfield for the data to be
+compared.</td></tr>
+	
+	<center><h4>Reason Codes for Return Code 4</h4></center>
+	
+	<blockquote>Table 198 describes the reason codes that are returned with return code 4.</blockquote>
+	<h6>Table 198. Reason Codes for Return Code 4</h6>
+	<b>Reason</b>
+		<table rules="rows">
+		<tr><th>Code</th><th>Description</th><th>Corrective Action</th></tr>
+		<tr><td>1</td><td>The system rejects the request because RODM is
+doing one of the following:<br>v Quiescing—waiting for all current transactions
+to complete following a checkpoint request.<br>v Writing the master window and the translation
+windows to the checkpoint data sets.<br>RODM rejects all new user API requests and
+returns this reason code</td><td>Retry the request after the checkpoint process is
+completed.</td></tr>
+		<tr><td>2</td><td>The system rejects the request because RODM is
+starting.</td><td>Retry the request after RODM is initialized
+completely</td></tr>
+		<tr><td>3</td><td>The system rejects the request because RODM is
+stopping.</td><td>Restart the specified RODM or connect to another
+existing RODM by updating the RODM_name
+field in the RODM access block. Retry the request</td></tr>
+		<tr><td>3</td><td>The system rejects the request because RODM was
+stopped with a checkpoint request. The specified
+Sign_on_token is no longer valid.</td><td>If this reason code was a result of the
+EKG_Connect or EKG_ConnectLong function,
+retry the request after restarting the specified
+RODM. If this reason code was not result of a
+EKG_Connect or EKG_ConnectLong function,
+connect to another RODM by correcting the
+RODM_name field in the access block to get a new
+Sign_on_token. Retry the request with the new
+Sign_on_token</td></tr>
+		
+		</table>
+	
+	<b>Reason</b>
+		<table rules="rows">
+		<tr><th>Code</th><th>Description</th><th>Corrective Action</th></tr>
+			<tr><td>6</td><td>The system rejects the request because RODM was
+stopped without a checkpoint request. The
+specified Sign_on_token is no longer valid</td><td>If this reason code was a result of the
+EKG_Connect or EKG_ConnectLong function,
+retry the request after restarting the specified
+RODM. If this reason code was not result of a
+EKG_Connect or EKG_ConnectLong function,
+connect to another RODM by correcting the
+RODM_name field in the access block to get a new
+Sign_on_token. Retry the request with the new
+Sign_on_token.</td></tr>
+			<tr><td>24</td><td>The system cannot trigger one or more methods in
+the notification list. The original transaction itself
+completed successfully. Possible causes are that the
+notification method is recursive, or there are errors
+in executing the method.</td><td>Make sure that all methods in the notification list
+are valid.</td></tr>
+		<tr><td>27</td><td>The response block is not large enough. An
+overflow block is created. An overflow block is not
+created for query functions issued by a method.</td></tr>	
+			<tr><td>28</td><td>RODM log files are not available. Both the
+primary and secondary log files can not be opened
+or written successfully, or the LOGT command
+was issued. The transaction failed.</td><td>Contact the system administrator.</td></tr>
+			<tr><td>29</td><td>The log record size is larger than the default
+maximum of 32761 bytes. The record is truncated
+to 32761 bytes.</td><td>Check the size of the Method_parms in the
+function block or check the size of the log message
+specified for the Output to Log (2008) function.</td></tr>
+			<tr><td>30</td><td>The Stop_ECB in the function block is null. This
+user will not be notified when the specified
+RODM is stopping</td><td>None</td></tr>
+			<tr><td>34</td><td>The specified queue object is created but the link
+with the user object cannot be created. The
+required storage might not be available</td><td>None</td></tr>
+			<tr><td>38</td><td>The operator stopped the checkpoint request by
+direct response to a WTOR issued by RODM. This
+reason code is contained in the
+EKG_LastCheckpointResult field of the
+EKG_System object and is not returned through
+the method API or user API.</td><td>Contact operator.</td></tr>
+			<tr><td>40</td><td>The system does not change the field value
+because the field already contains the primary
+inheritance value</td><td>None</td></tr>
+			<tr><td>41</td><td>The system rejects the request because the field is
+locally created.</td><td>None</td></tr>
+			<tr><td>42</td><td>The specified method is a null module because it
+has been deleted by an unsuccessful module
+refresh. The transaction failed.</td><td>Refresh the method and retry the request. If not
+successful, delete the method and reinstall it.</td></tr>
+			<tr><td>44</td><td>There is no message in the specified notification
+queue for the user.</td><td>None</td></tr>
+			<tr><td>46</td><td>The overflow block is cleaned without retrieving
+because the response block provided by the user is
+null.</td><td>None</td></tr>
+		</table>
+<b>Reason</b>
+		<table rules="rows">
+		<tr><th>Code</th><th>Description</th><th>Corrective Action</th></tr>
+			<tr><td>48</td><td>Not used.</td><td>None</td></tr>
+			<tr><td>49</td><td>Not used.</td><td>None</td></tr>
+			<tr><td>48</td><td>The posting fails because the user has not
+requested a WAIT on the specified ECB address,
+or because the specified ECB address is not valid.
+The queue objects or the subscriptions will be
+deleted according to the StopMode of the user
+object.</td><td>None</td></tr>
+			
+			<tr><td>52</td><td>The system rejects the request because the
+specified class does not exist or the parent class of
+the specified object ID does not exist. RODM sets
+the return code to 4 for query functions and to 8
+for other functions.</td><td>Correct the object data. Retry the request.</td></tr>
+<tr><td>54</td><td>The system rejects the request because the
+specified object does not exist. RODM sets the
+return code to 4 for query functions and to 8 for
+other functions</td><td>Correct the object data. Retry the request.</td></tr>
+<tr><td>56</td><td>The system rejects the request because the
+specified field does not exist. RODM sets the
+return code to 4 for query functions and to 8 for
+other functions</td><td>Correct the field data. Retry the request</td></tr>
+			
+		<tr><td>57</td><td>The system rejects the request because the
+specified primary parent of the object is not a class
+with object children. RODM sets the return code to
+4 for query functions and to 8 for other functions.</td><td>Correct the primary parent class data. If the
+primary parent class data is correct, verify the
+class ID portion of the object ID. Retry the request.</td></tr>	
+			<tr><td>62</td><td>The system rejects the request because the
+specified subfield does not exist. RODM sets the
+return code to 4 for query functions and to 8 for
+other functions.</td><td>Correct the subfield data. Retry the request.</td></tr>
+			<tr><td>72</td><td>The target fields have already been linked. The
+system has taken no action.</td></tr>
+			<tr><td>75</td><td>The target fields are not linked. The system has
+taken no action.</td><td>Correct the field information. Retry the request.</td></tr>
+			<tr><td>81</td><td>The system rejects the request because the
+specified method is not installed. RODM sets the
+return code to 4 for requests to delete a method
+object and to 8 for other functions.</td><td>Install the specified method. Retry the request.</td></tr>
+			<tr><td>92</td><td>The system rejects the request because the field to
+be created already exists under the specified class.</td><td>Correct the field data. Retry the request.</td></tr>
+			<tr><td>97</td><td>A field with the specified field name already exists
+on a child class. The new field is created on the
+parent class and the existing field on the child
+class is marked as containing locally defined data.</td><td>None</td></tr>
+			<tr><td>100</td><td>One or more requested subfields are not valid.
+Any valid subfields are created. RODM sets the
+return code to 4 for create field functions and to 8
+for create subfield functions.</td><td>Correct the subfield map. Retry the request.</td></tr>
+		</table></table>
+			<b>Reason</b>
+		<table rules="rows">
+		<tr><th>Code</th><th>Description</th><th>Corrective Action</th></tr>
+			<tr><td>104</td><td>One or more specified subfields already exist.</td><td>Correct the subfield map. Retry the request.</td></tr>
+			<tr><td>110</td><td>The system rejects the request because the
+specified object name is used by another object
+under the specified parent class.</td><td>Correct the object name. Retry the request.</td></tr>
+			<tr><td>112</td><td>The system rejects the request because the
+specified field already has a notification
+subscription with the same parameters.</td><td>Correct the request data. Retry the request.</td></tr>
+			<tr><td>113</td><td>The system cannot update the value of the
+timestamp subfield. There might not be enough
+storage.</td><td>Issue another transaction for the same resource
+and check the return and reason codes from that
+transaction. Return code 12, reason code 211
+means there is not enough storage.
+If the problem is caused by not enough storage,
+free storage and retry the request.</td></tr>
+			<tr><td>146</td><td>One or more specified subfields do not exist in the
+specified field.</td><td>Correct the subfield information. Retry the request.</td></tr>
+			<tr><td>158</td><td>he notification cannot be placed in the
+notification queue because the queue has reached
+its maximum limit</td><td>Query the notification queue content or enlarge
+the value of EKG_Maximum_Q_Entries.</td></tr>
+			<tr><td>173</td><td>The system performs the request successfully and
+one notification queue is created by RODM.</td><td>Change the EKG_ECBAddress of this notification
+queue object to a valid value.</td></tr>
+			<tr><td>174</td><td>The notification information block has been put
+into the notification queue. The system cannot
+post the specified user because the ECB address is
+				null.</td><td>None</td></tr>
+			<tr><td>175</td><td>Part of the user message is truncated because it is
+longer than 32767 bytes</td><td>Nnoe</td></tr>
+			<tr><td>181</td><td>The notification cannot be attached to the specified
+queue because the queue is not active.</td><td>Change the EKG_Status value of the specified
+queue object.</td></tr>
+			
+			<tr><td>182</td><td>The notification has been put in the notification
+queue. The system cannot post the specified user.</td><td>None</td></tr>
+				<tr><td>183</td><td>The information from the notification block has
+been put in the response block. The system cannot
+release the storage used by the notification block</td><td>None</td></tr>
+				<tr><td>191</td><td>The system rejects the request because the
+specified method object is the NullMeth object.</td><td>Correct the method object information. Retry the
+request.</td></tr>
+		<tr><td>204</td><td>The original data in the response block is
+overwritten.</td><td>None</td></tr>		
+				<tr><td>205</td><td>Not used.</td><td>None</td></tr>
+					<tr><td>206</td><td>Not used.</td><td>None</td></tr>
+				<tr><td>208</td><td>The response block overflow data is discarded
+because the user has specified to not save
+overflow data.</td><td>If the response block overflow data is needed,
+change the value of the EKG_RBOverflowAction
+field to save. Retry the request.</td></tr>
+				<tr><td>209</td><td>The user request to wait on a list of ECBs cannot
+be completed because an ECB address of 0 is
+found.</td><td>Correct the ECB address.</td></tr>
+			<tr><td>221</td><td>Not used.</td><td>None</td></tr>	
+				
+		<b>Reason</b>
+		<table rules="rows">
+		<tr><th>Code</th><th>Description</th><th>Corrective Action</th></tr>
+			<tr><td>604</td><td>A correlated aggregate object was not created
+because the agent provided an incorrect
+correlation value (network address).</td><td>Modify the agent (distributed manager) to provide
+a valid network address.</td></tr>
+			<tr><td>605</td><td>A correlated aggregate object was not created
+because a correlated aggregate object already
+exists.</td><td>None</td></tr>
+			<tr><td>32770</td><td>Part of the method output message from the
+notification method that is supplied with the
+NetView program is discarded because the length
+exceeds 32767 bytes. The request completed
+successfully.</td><td>Correct the method output message.</td></tr>
+			<tr><td>45081</td><td>A method encountered an error but was able to
+complete its function. Either an incorrect field
+value was provided, for which RODM used a
+default value, or the method detected a
+notification method failure after it successfully
+changed the value of a field in RODM.</td><td>The condition that caused this error must be
+corrected to avoid future failures. The method logs
+information on the error in messages written as
+type-1 RODM log entries. If the error is caused by
+a notification method failure, the message includes
+the reason code set by the notification method. If
+the error was caused by an incorrect field value,
+the RODM log specifies the field, the incorrect
+value, and the default value used in its place.
+Correct the incorrect value.</td></tr>
+			</table>
+	</table>
+			
+<center>	<h2>Reason Codes for Return Code 8</h2></center>
+Table 199 describes the reason codes that are returned with return code 8.
+<p>Table 199. Reason Codes for Return Code 8</p>
+		<b>Reason</b>
+		<table rules="rows">
+		<tr><th>Code</th><th>Description</th><th>Corrective Action</th></tr>
+			<tr><td>8</td><td>The system rejects the request because the API
+version is not valid.</td><td>Correct the API version information in the
+transaction information block. Retry the request.</td></tr>
+		<tr><td>9</td><td>The system rejects the request because the caller is
+not authorized to use the requested function.</td><td>Make sure that the User_appl_ID is correct or
+contact the system administrator to change the
+authority level.</td></tr>	
+			<tr><td>10</td><td>The system rejects the request because the function
+ID is not valid.</td><td>Correct the function ID. Retry the request.</td></tr>
+			<tr><td>11</td><td>The requested function is not complete because
+the system does not have enough storage to copy
+the short-lived parameters into RODM.</td><td>Remove unused entities and fields or contact the
+system administrator. Retry the request.</td></tr>
+			<tr><td>12</td><td>Storage that is not formatted as a RODM SSB was
+found on the RODM SSB chain.</td><td>If RODM has not been started, start RODM and
+retry the request. If the problem persists, call IBM
+service.</td></tr>
+			<tr><td>12</td><td>The system rejects the request because the
+specified RODM is not found.</td>	<td>Start the RODM with the specified name or correct
+the RODM_name field in the RODM access block.
+				Retry the request.</td></tr>
+			
+		</table>
+		<b>Reason</b>
+		<table rules="rows">
+		<tr><th>Code</th><th>Description</th><th>Corrective Action</th></tr>	
+			<tr><td>14</td><td>The system rejects the request because an incorrect
+Sign_on_token is detected. The user application
+does not connect to the specified RODM using the
+EKG_Connect or EKG_ConnectLong function, or
+the Sign_on_token was changed.<br>If two or more applications connect to RODM
+using the same user ID and one application
+disconnects from RODM, the Sign_on_token for
+the remaining applications is canceled by RODM.
+This reason code is issued when a remaining
+				application sends a function request to RODM.</td><td>Make sure the user application does not modify
+the Sign_on_token. Connect to the specified
+RODM using the EKG_Connect or
+EKG_ConnectLong function to get a valid
+Sign_on_token. Retry the request with the new
+				Sign_on_token.</td></tr>
+			<tr><td>15</td><td>The system rejects the request because the number
+of concurrently executing API function calls has
+reached the limit specified in the customization
+file</td><td>Retry the request later or increase the
+CONCURRENT_USERS value in the RODM
+customization file. Warm start RODM.</td></tr>
+			<tr><td>16</td><td>The system rejects the request because no RODM
+currently exists in the system.</td><td>Start the RODM with the specified name. Retry
+the request.</td></tr>
+			<tr><td>17</td><td>The system rejects the request because the RODM
+service module in CSA is not found.</td><td>Contact the system administrator.</td></tr>
+			<tr><td>18</td><td>The system rejects the request because the
+specified function is not allowed for this method.</td><td>Correct the function ID in the function block.
+Retry the request.</td></tr>
+			<tr><td>21</td><td>The system cannot perform the requested list of
+functions because the number of list requests
+provided by the user is zero or negative.</td><td>Correct the Number_of_functions field. Retry the
+request.</td></tr>
+			<tr><td>22</td><td>The system rejects the request because the
+notification queue name is null.</td><td>Correct the notification queue name. Retry the
+request.</td></tr>
+		<tr><td>23</td><td>The system rejects the request because the data
+(types CharVar, GraphicVar, MethodSpec,
+SelfDefining, or BERVar) passed to RODM is not
+valid.</td><td>Correct the data. Retry the request.</td></tr>	
+			<tr><td>33</td><td>The system rejects the request because no storage
+is available for storing the log record information.</td><td>Delete unused entities. Retry the request.</td></tr>
+			<tr>
+<td>34</td><td>Checkpoint master window error. The VSAM data
+set identified by the EKGMAST DD statement in
+the RODM start up JCL is not available or not
+usable. This reason code is contained in the
+EKG_LastCheckpointResult field of the
+EKG_System object and is not returned through
+				the method API or user API.</td><td>Contact the system administrator.</td></tr>
+<tr><td>34</td><td>Checkpoint translation window error. The VSAM
+data set identified by the EKGTRAN DD
+statement in the RODM start up JCL is not
+available or not usable. This reason code is
+contained in the EKG_LastCheckpointResult field
+of the EKG_System object and is not returned
+through the method API or user API</td><td>Contact the system administrator.</td></tr>
+
+</table>
+<b>Reason</b>
+		<table rules="rows">
+		<tr><th>Code</th><th>Description</th><th>Corrective Action</th></tr>
+<tr><td>37</td><td>Checkpoint data window error. One or more of
+the VSAM data sets identified by the DD
+statements in the RODM start up JCL whose
+names have a prefix of EKGD are not available or
+not usable. This reason code is contained in the
+EKG_LastCheckpointResult field of the
+EKG_System object and is not returned through
+the method API or user API.</td><td>Contact the system administrator</td></tr>
+			<tr><td>39</td><td>The system rejects the request because the data
+pointed to by Old_data_ptr is not equal to the
+target field.</td><td>Correct Old_data_ptr. Retry the request.</td></tr>
+<tr><td>52</td><td>The system rejects the request because the
+specified class does not exist or the parent class of
+the specified object ID does not exist. RODM sets
+the return code to 4 for query functions and to 8
+for other functions.</td><td>Correct the class or parent class. Retry the request.</td></tr>
+<tr><td>54</td><td>The system rejects the request because the
+specified object does not exist. RODM sets the
+return code to 4 for query functions and to 8 for
+other functions.</td><td>Correct the object data. Retry the request.</td></tr>
+<tr><td>56</td><td>The system rejects the request because the
+specified field does not exist. RODM sets the
+return code to 4 for query functions and to 8 for
+other functions.</td><td>Correct the field data. Retry the request.</td></tr>
+<tr><td>57</td><td>The system rejects the request because the
+specified primary parent of the object is not a class
+with object children. RODM sets the return code to
+4 for query functions and to 8 for other functions.</td><td>Correct the primary parent class data. If the
+primary parent class data is correct, verify the
+class ID portion of the object ID. Retry the request.</td></tr>
+<tr><td>60</td><td>The system rejects the request because the field
+type is public and there are still objects existing
+under the class or descendent classes.</td><td>Delete the objects under the class before deleting
+the public field or its subfields.</td></tr>
+<tr><td>61</td><td>The system rejects the request because the subfield
+number is not valid.</td><td>Correct the subfield number. Retry the request.</td></tr>
+<tr><td>62</td><td>The system rejects the request because the
+specified subfield does not exist. RODM sets the
+return code to 4 for query functions and to 8 for
+other functions</td><td>Correct the subfield data. Retry the request.</td></tr>
+<tr><td>65</td><td>The system rejects the request because this
+function does not apply to fields with data type
+ObjectLink or ObjectLinkList.</td><td>Correct the function ID or field identifier. Retry
+the request</td></tr>
+<tr><td>66</td><td>The system rejects the request because the data
+type of the new data is not the same as the data
+type of the specified field.</td><td>Correct the data type or field. Retry the request.</td></tr>
+<tr><td>67</td><td>The system rejects the request because this
+function does not apply to a system-defined field.</td><td>Correct the function ID or the field. Retry the
+request.</td></tr>
+<tr><td>70</td><td>The system rejects the request because this
+function does not apply to a notify subfield.</td><td>Correct the subfield or function ID. Retry the
+request.</td></tr>
+<tr><td>71</td><td>The system rejects the request because this
+function does not apply to a prev_val or
+timestamp subfield.</td><td>Correct the subfield or function ID. Retry the
+request.</td></tr>
+</table>
+
+<b>Reason</b>
+		<table rules="rows">
+		<tr><th>Code</th><th>Description</th><th>Corrective Action</th></tr>
+<tr><td>73</td><td>The system rejects the request because the two
+target objects are identical.</td><td>Correct the entity information. Retry the request.</td></tr>
+<tr><td>74</td><td>The system rejects the request because the field
+data type is not allowed for a link or unlink
+function</td><td>Correct the field information. Retry the request.</td></tr>
+<tr><td>76</td><td>The system rejects the request because the notify
+subfield does not exist</td><td>Create a notify subfield for the specified field.</td></tr>
+<tr><td>77</td><td>The system rejects the request because this
+function does not apply to some of the
+system-defined fields.</td><td>Correct the fields. Retry the request.</td></tr>
+<tr><td>79</td><td>The system rejects the request because the
+specified function block pointer in the list is null.</td><td>Correct the function block pointer. Retry the
+request</td></tr>
+<tr><td>80</td><td>The system rejects the request because this module
+recursively calls itself.</td><td>Update the related methods to remove the
+recursive call. Retry the request.</td></tr>
+<tr><td>81</td><td>The system rejects the request because the
+specified method, or a method called by the
+specified method, is not installed. RODM sets the
+return code to 4 for requests to delete a method
+object and to 8 for other functions.</td><td>Install the specified method. If the specified
+method is installed correctly, ensure that all
+methods called by the specified method are
+installed correctly. Retry the request.</td></tr>
+<tr><td>83</td><td>The system rejects the request because the
+response block length is less than eight bytes</td><td>Correct the response block length. Retry the
+request</td></tr>
+<tr><td>84</td><td>The user has already connected to RODM.</td><td>None</td></tr>
+<tr><td>85</td><td>The system rejects the request because the
+specified Stop_type is not valid.</td><td>Correct the Stop_type. You can specify the value of
+Stop_type as 1 or 2. Retry the request</td></tr>
+<tr><td>86</td><td>The system rejects the request because the
+specified class name is not valid or is a RODM
+reserved class name.</td><td>Correct the class name. Retry the request</td></tr>
+<tr><td>87</td><td>The system rejects the request because the
+specified class name has been used by another
+class.</td><td>Correct the class name. Retry the request.</td></tr>
+<tr><td>89</td><td>The system rejects the request because the
+universal class or a system-created class cannot be
+deleted.</td><td>Correct the class information. Retry the request.</td></tr>
+
+<tr><td>91</td><td>The system rejects the request because the
+specified field name is not valid or is a reserved
+RODM field name.</td><td>Correct the field name. Retry the request.</td></tr>
+<tr><td>93</td><td>The system rejects the request because the field to
+be created already exists in the subclass and has a
+different data type or different subfields</td><td>Correct the field data. Retry the request.</td></tr>
+<tr><td>94</td><td>The system rejects the request because the field to
+be created already exists in a child class with a
+different field type</td><td>Correct the field data. Retry the request.</td></tr>
+<tr><td>95</td><td>The system rejects the request because the field
+type flag is not valid.</td><td>Correct the field type flag. You can specify the
+value of the field type flag as 1, 2, or 3. Retry the
+	request.</td></tr></table>
+			
+			<b>Reason</b>
+		<table rules="rows">
+		<tr><th>Code</th><th>Description</th><th>Corrective Action</th></tr>
+<tr><td>96</td><td>The system rejects the request because the data
+type is not valid or is a reserved data type.</td><td>Correct the data type. You cannot create fields
+using reserved data types. Retry the request.</td></tr>
+<tdr><td>98</td><td>The system rejects the request because a user
+application is not allowed to delete system-defined
+fields.</td><td>Correct the field information. Retry the request</td></tdr>
+<tr><td>100</td><td>One or more requested subfields are not valid.
+Any valid subfields are created. RODM sets the
+return code to 4 for create field functions and to 8
+for create subfield functions</td><td>Correct the subfield map. Retry the request</td></tr>
+<tr><td>103</td><td>The system rejects the request because the field or
+subfield does not exist under the specified class</td><td>Correct the class information to specify the class
+where the field or subfield exists. Retry the
+request.</td></tr>
+<tr><td>106</td><td>The system rejects the request because the value
+subfield cannot be deleted</td><td>Correct the subfield name. Retry the request.</td></tr>
+<tr><td>107</td><td>The system rejects the request because the method
+object name is not valid</td><td>Correct the method name. Retry the request.</td></tr>
+<tr><td>108</td><td>The system rejects the request to delete the
+method because the method is in use.</td><td>Check the value of the EKG_UsageCount field of
+the method object. If the value is greater than 0,
+the method is being used; retry the request later</td></tr>
+			<tr><td>109</td><td>The system rejects the request because the
+user-provided object name is not valid or is a
+RODM reserved object name.</td><td>If the request was a non_connect request, correct
+the object name. If the request was a connect
+request, correct the User_appl_ID so that it
+conforms to the rules for RODM object names.
+Retry the request.</td></tr>
+<tr><td>111</td><td>The system rejects the request because the
+specified object is linked to other objects.</td><td>Unlink all other objects from the specified object.
+Retry the request.</td></tr>
+<tr><td>113</td><td>The system rejects the request because the
+specified subscription does not exist.</td>Correct the request data. Retry the request.</tr>
+<tr><td>115</td><td>The system rejects the request because the data
+type for this field is not valid for this function</td><td>Correct the field data type. Retry the request.</td></tr>
+<tr><td>117</td><td>A function in the list is rejected because the
+function ID in the function information array is
+not valid. Functions with valid function IDs are
+processed.</td><td>Correct the function ID in the function information
+array.</td></tr>
+<tr><td>120</td><td>The system rejects the request because an overflow
+block with the specified correlation ID does not
+exist.</td><td>Correct the correlation ID. Retry the request</td></tr>
+</table>
+
+<b>Reason</b>
+		<table rules="rows">
+		<tr><th>Code</th><th>Description</th><th>Corrective Action</th></tr>
+<tr><td>127</td><td>The system rejects the request because the user ID
+is not authorized to RODM.</td><td>If you are running RODM with security active,
+ensure that the task that is trying to connect to
+RODM is defined to your security product, and
+has read access to the appropriate RODM
+resources defined in the RODMMGR class. For
+example, the user must have access to at least the
+RODM1 resource in the RODMMGR class to
+connect to RODM. (The RODM portion of RODM1 is
+determined by the SEC_RNAME keyword in
+EKCUST.) If the task that is trying to connect to
+RODM is a started procedure, ensure that you
+have defined the task to the STARTED class in the
+SAF product. In RACF, this can also be
+accomplished by defining the task in the started
+procedure table, ICHRIN03; however, using the
+STARTED class is preferred.<br>If you are not running RODM with security active,
+it is possible that you are trying to connect to
+RODM with a blank user ID. This is not allowed.
+You must specify a user ID on the connect request
+when security is not active.<br>If you run the RODM loader when security is not
+active, you will also get this reason code because
+the loader first tries to connect with a blank user
+ID. It will then automatically attempt to connect
+with a non-blank user ID. In this case, the reason
+	code can be ignored.<br><b>Note:</b> Running with a blank user ID is allowed
+when RODM is running with security active
+because the user ID can be extracted from the SAF
+product.To run with security active you must<br>
+v Have an SAF product installed
+v Have a security class active for RODM
+(RODMMGR or user defined)
+v Identify the security class with the SEC_CLASS
+keyword in EKGCUST.</td></tr>
+<tr><td>128</td><td>The system rejects the request for one of the
+following reasons:<ul><li>The password or password phrase has expired</li><li>The password or password phrase is not
+authorized.</li><li>The user ID was revoked in the SAF product</li></ul></td><td>If the password or password phrase is expired or
+not authorized, correct the problem and retry the
+request.
+If the password or password phrase is not the
+problem, have the security administrator check the
+status of the user ID in the SAF product</td></tr>
+<tr><td>130</td><td>The system rejects the request because a
+connection was requested in cross-memory mode</td><td>Issue the connection request in non-cross-memory
+mode.</td></tr>
+<tr><td>131</td><td>The system rejects the request because the
+overflow block has not been cleaned.</td><td>Issue a query response block overflow request to
+	retrieve the overflow data. Retry the request.</td></tr></table>
+
+<b>Reason</b>
+		<table rules="rows">
+		<tr><th>Code</th><th>Description</th><th>Corrective Action</th></tr>
+			<tr><td>134</td><td>The system cannot update the value of the
+prev_val subfield. There might not be enough
+storage.</td><td>Issue another transaction for the same resource
+and check the return and reason codes from that
+transaction. Return code 12, reason code 211
+means there is not enough storage.
+If the problem is caused by not enough storage,
+free some storage and retry the request.</td></tr>
+
+<tr><td>135</td><td>The system rejects the request because the length
+of the long-lived parameters is not valid.</td><td>Correct the parameter lengths. Retry the request.</td></tr>
+<tr><td></td></tr>
+<tr><td>136</td><td>The system rejects the request because the length
+of the Method_parms is not valid.</td><td>Correct the parameter length. The maximum
+length is 254 bytes. Retry the request</td></tr>
+<tr><td>138</td><td>The system rejects the request because the
+Old_data_ptr is null.</td><td>Correct the Old_data_ptr. Retry the request.</td></tr>
+<tr><td>139</td><td>The system rejects the request because the field ID
+is not specified and the field name pointer or field
+name length is not valid.</td><td>Specify either a valid field ID or a valid field
+name pointer and field name length. Retry the
+request.</td></tr>
+<tr><td>140</td><td>The system rejects the request because the class ID
+is not specified and the class name is not valid.</td><td>Specify a valid class ID or a valid class name.
+Retry the request</td></tr>
+<tr><td>141</td><td>The system rejects the request because the
+specified field of data type ObjectLink is already
+	linked to another field</td><td>Correct the field information. Retry the request.</td></tr>
+		<tr><td>144</td><td>The system rejects the request because a
+system-created field or subfield cannot be deleted
+by a user application.</td><td>Correct the field or subfield information. Retry the
+request</td></tr>	
+		<tr><td>145</td><td>The system rejects the request because the
+specified field or subfield is read only.</td><td>Correct the field or subfield information. Retry the
+request.</td></tr>	
+		<tr><td>147</td><td>The system rejects the request because the length
+of the new data is not valid.</td><td>Correct the data length. Retry the request</td></tr>	
+			<tr><td>148</td><td>The system rejects the request because the create
+subfield function is not valid for a system-defined
+field.</td><td>Correct the field information. Retry the request.</td></tr>
+			<tr><td>150</td><td>The system rejects the request because the object
+ID is not specified and the object name
+information is not valid.</td><td>Specify a valid object ID or a valid object name.
+Retry the request.</td></tr>
+			<tr><td>159</td><td>The system rejects the request because the object
+directory or the field name table has reached its
+maximum size limit.</td><td>Select another object or field. Retry the request.</td></tr>
+			<tr><td>160</td><td>The system rejects the request because the field
+name is not specified.</td><td>Specify the field name. Retry the request.</td></tr>
+			<tr><td>163</td><td>The system rejects the request because the pointer
+to the entity access information block is not valid</td><td>Correct the entity access information block pointer.
+Retry the request.</td></tr>
+			<tr><td>164</td><td>The system rejects the request because the pointer
+to the field access information block is not valid.</td>Correct the field access information block pointer.
+Retry the request.</tr>
+			<tr>165<td></td><td>The system rejects the request because the
+Naming_count of the entity access information
+block is not valid.</td><td>Correct the Naming_count value. Valid
+Naming_count values are 0, 1, and 2. Retry the
+request.</td></tr>
+		<tr><td>166</td><td>The system rejects the request because the
+Naming_count of the field access information
+block is not valid.</td><td>Correct the Naming_count value. Valid
+Naming_count values are 0 and 1. Retry the
+request.</td></tr>	
+	<b>Reason</b>
+		<table rules="rows">
+		<tr><th>Code</th><th>Description</th><th>Corrective Action</th></tr>		
+			<tr><td>169</td><td>The system rejects the request because the object
+ID is not specified</td><td>Specify the object ID. Retry the request.</td></tr>
+			<tr><td>170</td><td>The system rejects the request because a user
+application cannot create or delete a system object</td><td>Correct the parent class information. Retry the
+request.</td></tr>
+		<tr><td>176</td><td>The system rejects the request because the new
+data is not valid.</td><td>Correct the new data. Valid values for
+EKG_StopMode are 1, 2, and 3; for EKG_Status
+and EKG_MTraceFlag are 0 and 1; for
+EKG_RBOverflowAction and
+EKG_ExternalLogState are 1 and 2. Valid values
+for EKG_LogLevel and EKG_MLogLevel are
+0—999. Retry the request</td></tr>	
+			<tr><td>186</td><td>The system rejects the request because the user
+application cannot create classes under the system
+classes.</td><td>Correct the parent class information. Retry the
+request.</td></tr>
+		<tr><td>187</td><td>The system rejects the request because the
+specified subfield map is null.</td><td>Correct the subfield map. Retry the request.</td></tr>	
+			<tr><td>192</td><td>The system rejects the request because the
+specified function ID is not valid asynchronous
+execution</td><td>Correct the function ID. Retry the request.</td></tr>
+			<tr><td>193</td><td>The return or reason code set by the method is not
+valid.</td><td>Correct the return or reason code in the method.
+Valid return codes are 0, 4, 8, and 12. Valid reason
+codes are from 0 to 65535.</td></tr>
+		<tr><td>195</td><td>The system rejects the request because the system
+field cannot be changed at the class level.</td><td>Correct the data. Retry the request</td></tr>	
+			<tr><td>201</td><td>The system rejects the request because the data to
+be return is a null string.</td><td>Correct the data. Retry the request.</td></tr>
+			<tr><td>202</td><td>The system rejects the request because the
+checkpoint function is disabled.</td><td>Make sure that all checkpoint data sets are defined
+when RODM is started.</td></tr>
+			<tr><td>203</td><td>The system rejects the request because there is no
+response block.</td><td>Specify a response block. Retry the request.</td></tr>
+			<tr><td>207</td><td>The EKG_Connect or EKG_ConnectLong function
+cannot be completed. Possible causes are that
+RACF is active but the class that is specified in the
+customization file is not active in RACF or the
+class is not defined in RACF.</td><td>Contact the system administrator.</td></tr>
+			<tr><td>210</td><td>The user request to wait on a list of ECBs cannot
+be completed because the number of ECBs is zero.</td>/<td>Correct the number of ECBs in the list.</td></tr>
+			<tr><td>214</td><td>The system rejects the request because the
+Naming_count of the Entity Access Information
+Block is not valid. Because the function needs
+valid object access information, the Naming_count
+of the Entity Access Information Block must be 0
+or 2.</td><td>Correct the Naming_count. Valid values are 0 and
+2. Retry the request.</td></tr>
+			<tr><td>215</td><td>The system rejects the request because the user is
+not allowed to update EKG_MTraceFlag of
+NullMeth.</td><td>Correct the method object information.</td></tr>
+			<tr><td>220</td><td>The system rejects the link or unlink request
+because one or both of the change methods
+defined to the fields to be linked or unlinked
+returned a non-zero return code</td>Examine the change method to see what criteria it
+uses to allow links or unlinks and make sure you
+meet those criteria.</tr>
+		<b>Reason</b>
+		<table rules="rows">
+		<tr><th>Code</th><th>Description</th><th>Corrective Action</th></tr>	
+			<tr><td>221</td><td>The system rejects the query multiple subfields
+request because the Number_of_subfields field of
+the function block was specified as zero, less than
+zero, or greater than 100,000.<br>The system rejects the change multiple fields
+request because the Number_of_subfields field of
+the function block was specified as zero, less than
+zero, or greater than 256</td><td>Specify a correct value for the
+Number_of_subfields field.
+Specify a correct value for the Number_of_Fields
+field.</td></tr>
+		<tr><td>225</td><td>The system rejects the request because the field
+has not been created with the corresponding
+Field_type_flag</td><td>Correct the field name, or the field ID and field
+type information. Retry the request.</td></tr>	
+			<tr><td>226</td><td>You tried to connect a program that is not APF
+authorized with a blank password or password
+phrase</td><td>Either specify the correct password or password
+phrase in the User_password field of the function
+block, or make the program APF authorized.</td></tr>
+			<tr><td>227</td><td>The system rejects the request because a reserved
+field in the function block is not zero.</td><td>Ensure that all of the reserved fields in the
+function block are set to zero. Retry the request.</td></tr>
+			<tr><td>228</td><td>The system rejects the request because the indexed
+data length field for the locate function is not
+valid.</td><td>Ensure that the indexed data length field is
+between 0 and 32767 for data type CharVar, and
+between 0 and 254 for data type IndexList. Retry
+the request.</td></tr>
+			<tr><td>229</td><td>The system rejects the request because the index
+data value pointer for the locate function is not
+valid.</td><td>Correct the indexed data value pointer. Retry the
+request.</td></tr>
+		<tr><td>230</td><td>The system rejects the request because the length
+of the IndexList field does not equal the sum of
+each element including each element's 2-byte
+length field.</td><td>Ensure that the length is correct. Retry the request.</td></tr>	
+			<tr><td>231</td><td>The system rejects the request because the
+IndexList field contains a duplicate value.</td><td>Ensure that each value is unique within the field.
+Retry the request.</td></tr>
+			<tr><td>232</td><td>The system rejects the request because a length
+found in a value of the IndexList field is not valid.</td><td>Ensure that the length of each value is between 0
+and 254 bytes. Retry the request</td></tr>
+			<tr><td>32768</td><td>The data specified in the Long_lived_parm is not
+valid. The error might be in the request code,
+option code or enable change_status parameter.
+The error might also be that the data type of the
+tested value is not valid. The request failed.</td><td>Correct the Long_lived_parm.</td></tr>
+			<tr><td>32771</td><td>The system rejects the request because the data
+type of the value subfield queried is not valid</td><td>Verify the correct data type for the method being
+used. See “Supplied Methods” on page 488 for a
+description of the methods that are supplied with
+the NetView program. Correct the parameter list
+passed to the method.</td></tr>
+			<tr><td>32772</td><td>The system rejects the notification method that is
+supplied with the NetView program because the
+data type of the value in the specified field is not
+valid. The request failed</td><td>Correct the field data type of the specified field.
+Valid field data types are Smallint, Integer,
+Floating, TimeStamp or CharVar.</td></tr>
+			<tr><td>32790</td><td>The short-lived parameter passed to the method is
+a null pointer</td><td>Correct the pointer</td></tr>
+			
+		<b>Reason</b>
+		<table rules="rows">
+		<tr><th>Code</th><th>Description</th><th>Corrective Action</th></tr>	
+			<tr><td>32791</td><td>One or more data items in the short-lived
+parameter is not of data type CharVar</td><td>Correct the short-lived parameter.</td></tr>
+			<tr><td>32792</td><td>One or more data items in the short-lived
+				parameter is too long</td><td>Correct the short-lived parameter</td></tr>
+			<tr><td>32793</td><td>One or more data items in the short-lived
+parameter is too long.</td><td>Correct the short-lived parameter.</td></tr>
+						<tr><td>32794</td><td>The RCVRID_CHARVAR value in the short-lived
+parameter passed to the EKGSPPI method is blank
+or null.</td><td>Specify a valid value for RCVRID_CHARVAR.</td></tr>
+<tr><td>32795</td><td>The ASSIST_CHARVAR value in the short-lived
+parameter passed to the EKGSPPI method is not
+valid.</td><td>Specify a valid value for ASSIST_CHARVAR.</td></tr>
+			<tr><td>32796</td><td>The TASKINFO_CHARVAR value in the
+short-lived parameter passed to the EKGSPPI
+method is not valid.</td><td>Specify a valid value for TASKINFO_CHARVAR.</td></tr>
+			<tr><td>32797</td><td>The TASKNAME_CHARVAR value in the
+short-lived parameter passed to the EKGSPPI
+method is blank or null.</td><td>Specify a valid value for TASKNAME_CHARVAR.</td></tr>
+			<tr><td>32798</td><td>The CMD_CHARVAR value in the short-lived
+parameter passed to the EKGSPPI method is blank
+or null.</td><td>Specify a valid value for CMD_CHARVAR</td></tr>
+			<tr><td>45057</td><td>The DUIFCUAP method parameters specify
+deleting the AggregationParent to
+AggregationChild link between two objects.
+However, the specified objects do not have this
+link.</td><td>If the objects were never linked, or if the objects
+were previously unlinked by the DUIFCUAP
+method, no action is needed. If the objects were
+unlinked without using the DUIFCUAP method,
+run the DUIFFAWS method. If the objects were
+unlinked using the DUIFCUAP method, but the
+method did not complete successfully, run the
+DUIFFAWS method.</td></tr>
+			<tr><td>45058</td><td>The DUIFCUAP method parameters specify
+creating the AggregationParent to
+AggregationChild link between two objects.
+However, the specified objects already have this
+link.</td><td>If the objects were previously linked by the
+DUIFCUAP method, no action is needed. If the
+objects were linked without using the DUIFCUAP
+method, run the DUIFFAWS method. If the objects
+were linked using the DUIFCUAP method, but the
+method did not complete successfully, run the
+DUIFFAWS method.</td></tr>
+			<tr><td>45061</td><td>Not used.</td><td>None</td></tr>
+			<tr><td>45065</td><td>A supplied method was unable to get storage.</td><td>If possible, delete objects from RODM or restart
+RODM with a larger region size</td></tr>
+			<tr><td>45066</td><td>The DUIFCUAP does not create the requested link.
+Creating the requested link creates a loop in the
+aggregation hierarchy, or a loop already exists in
+the aggregation hierarchy above the objects for
+which the link was requested. Information about
+the loop path is written to the RODM log.</td><td>Correct the parameters passed to DUIFCUAP to
+specify valid objects to be linked, or remove the
+loop from the aggregation hierarchy. Run
+DUIFFAWS to make sure that aggregate objects are
+properly initialized. Run DUIFCUAP again to
+create the desired link.</td></tr>
+			<tr><td>45070</td><td>The short-lived input parameters provided to a
+method are not valid. The parameters might have
+been supplied by the INVOKED_WITH RODM
+load function primitive statement. The parameters
+are written to the RODM log.</td><td>Check the RODM log and verify that the
+parameters sent to the method have the correct
+format and value for the method.</td></tr>
+			
+			
+			<b>Reason</b>
+		<table rules="rows">
+		<tr><th>Code</th><th>Description</th><th>Corrective Action</th></tr>
+		<tr><td>45071</td><td>An object specified in the input parameters to the
+DUIFCUAP method or the DUIFCLRT method
+does not exist in RODM. Information about the
+missing object is written to the RODM log.</td><td>Create the missing object or correct the input
+parameters for the method and retry the request.</td></tr>	
+			<tr><td>45072</td><td>An error occurred for a method that was triggered
+for this transaction. Diagnostic information is
+written to the RODM log</td><td>Check the RODM log for information on the
+specific error that occurred.</td></tr>
+			<tr><td>45078</td><td>An error occurred while processing a transaction.
+The RODM data cache might contain inconsistent
+field values.</td><td>Check the RODM log for information on the
+specific error that occurred. Correct the specific
+error. Repeat the transaction or run the DUIFFAWS
+method.</td></tr>
+		<tr><td>45078</td><td>An error occurred while processing a transaction.
+Some part of the change required for the
+transaction was completed, but not all of it.</td><td>Check the RODM log for information on the
+specific error that occurred. Correct the specific
+error. Repeat the transaction.</td></tr>	
+			<tr><td>45080</td><td>The value or data type of the data specified by the
+New_data_ptr parameter for an EKG_ChangeField
+function request is not valid</td><td>Check the RODM log for information on the
+specific field where the error occurred. Correct the
+error. Repeat the transaction</td></tr>
+			<tr><td>45082</td><td>An error occurred while processing a transaction.
+The value of the DisplayStatus field of one or
+more aggregate objects might be incorrect.</td><td>Check the RODM log for information on the
+specific error that occurred. Correct the specific
+error. Repeat the transaction or run the DUIFFRAS
+method</td></tr>
+		<tr><td>45083</td><td>An object passed to the method in the
+self-defining method parameters is not in the
+expected class.</td><td>Verify that the method parameters are valid.
+For GMFHS method DUIFCLRT, the first object
+specified in the method parameters must be a real,
+aggregate, or shadow object, and the second object
+specified must be a display resource type object.
+For GMFHS method DUIFCUAP, the first object
+specified in the method parameters must be a real
+or aggregate object and the second object specified
+must be an aggregate object.</td></tr>	
+			<tr><td>45092</td><td>An attempt to connect the GMFHS application to
+RODM failed. Another GMFHS application is
+already connected to RODM.</td><td>Make sure that the name of the RODM application
+as specified in the GMFHS initialization member
+(DUIGINIT) is correct. Only one GMFHS
+application can connect to RODM at a time.</td></tr>
+			<tr><td>45093</td><td>The version of GMFHS methods installed in
+RODM is incompatible with the version of the
+GMFHS application that attempted a connection
+with RODM</td><td>Make sure that the name of the RODM application
+as specified in the GMFHS initialization member
+(DUIGINIT) is correct. The version of the GMFHS
+application must be the same as the version of the
+GMFHS methods installed in RODM.</td></tr>
+			<h3>Reason Codes for Return Code 12</h3>
+			Table 200 describes the reason codes that are returned with return code 12.<p>Table 200. Reason Codes for Return Code 12</p>
+			
+			<b>Reason</b>
+		<table rules="rows">
+		<tr><th>Code</th><th>Description</th><th>Corrective Action</th></tr>
+		<tr><td>7</td><td>Not used.</td><td>None</td></tr>	
+
+<b>Reason</b>
+		<table rules="rows">
+		<tr><th>Code</th><th>Description</th><th>Corrective Action</th></tr>
+<tr><td>19</td><td>All or some of the response block overflow data is
+discarded because the overflow block does not
+have enough storage.</td><td>Issue the query response block overflow function
+to clean up the overflow block. Retry the request
+using a larger response block. The
+Response_block_used field in the response block
+contains the amount of storage needed for the
+response data.</td></tr>
+<tr><td>20</td><td>The requested function might not complete
+because an abend occurred during the transaction</td><td>Verify that the control blocks passed to RODM for
+the transaction are valid. See the IBM Tivoli
+NetView for z/OS Troubleshooting Guide for
+information on diagnosing abend problems</td></tr>	
+			
+			<tr><td>25     </td><td>The system rejects the request because the
+transaction tries to update data in a data window
+currently being written by RODM in a checkpoint
+process     </td><td>Retry the request later.     </td></tr>
+			<tr><td>  63   </td><td>  The system rejects the request to create a method
+object because the system cannot load the module
+of the specified method into the RODM address
+space.   </td><td>Verify that the method exists in the method
+library.     </td></tr>
+			<tr><td>   68  </td><td> Not used.    </td><td>  None   </td></tr>
+			<tr><td>   82  </td><td>  The module of the specified method has been
+deleted by an unsuccessful module refresh.   </td><td> Refresh the module of the method again    </td></tr>
+			<tr><td>118</td><td>Not used.     </td><td> None    </td></tr>
+			<tr><td> 121    </td><td>   The system rejects the request because there is not
+enough storage. Storage has run out in one of the
+following places:<ul><li>In the VSAM translation checkpoint data sets</li><li>In the translation window</li></ul>  </td><td> The most likely reason for this return and reason
+code is that the VSAM data set is too small. If this
+is the case, message EKG1116I is also written to
+the console. If you receive this message, increase
+the size of the RODM translation checkpoint data
+set. The checkpoint data set size is specified by
+DDname EKGTRAN in the RODM startup JCL.    </td></tr>
+			
+			<tr><td>  122   </td><td> The system rejects the request because there is not
+enough storage. Storage has run out in one of the
+following places:
+v In the VSAM checkpoint data sets
+v In the RODM dataspace    </td><td>  The most likely reason for this return and reason
+code is that the VSAM checkpoint data sets are too
+small. If this is the case, you will also receive
+message EKG1117I on the system console. If you
+receive this message, increase the size of the
+RODM data window checkpoint data set or add
+another data window checkpoint data set. The
+checkpoint data sets are specified by DDname
+EKGDnnn in the RODM startup JCL.   </td></tr>
+			<tr><td>  123   </td><td>Not Use     </td><td> None    </td></tr>
+			<tr><td> 124    </td><td>The system rejects the request because there is no
+ID available for the class     </td><td>   Delete unused entities. Retry the request.  </td></tr>
+			<tr><td>   126  </td><td> he system rejects the request because there is no
+ID available for the field    </td><td>  Delete unused fields. Retry the request.   </td></tr>
+			<tr><td> 156    </td><td> The system rejects the request to create a queue
+object because there is no storage for the
+notification queue block.    </td><td>   Delete unused entities. Retry the request later.  </td></tr>
+			<tr><td>157     </td><td>The system rejects the request because there is no
+storage for the notification information block.     </td><td>   Retry the request later  </td></tr>
+			<tr><td> 177    </td><td>  The system rejects the request because no
+system-generated object name is available.   </td><td>   Specify the object name. Retry the request  </td></tr>
+			
+			<b>Reason</b>
+		<table rules="rows">
+		<tr><th>Code</th><th>Description</th><th>Corrective Action</th></tr>
+			
+			
+			
+			
+			<tr><td> 179    </td><td>   The system rejects the request because the system
+cannot create the user object. The possible cause is
+that not enough storage is available.  </td><td>   Retry the request later  </td></tr>
+			<tr><td> 188    </td><td>  Not used.   </td><td>  None   </td></tr>
+			<tr><td>  194   </td><td> The system cannot complete the request because
+the method has an execution error.    </td><td>  Check the RODM log record for further
+information.   </td></tr>
+			<tr><td>   198  </td><td>  The system rejects the request because the system
+cannot change the fields of the user object. There
+might not be enough storage available.   </td><td>  Free some storage and retry the request   </td></tr>
+			<tr><td>   199  </td><td> An operator canceled the user transaction.    </td><td> Check with the operator.    </td></tr>
+			<tr><td>    200 </td><td> The system cancels the user transaction because of
+RODM is quiescing.    </td><td>   Retry the request or method later  </td></tr>
+			<tr><td>211     </td><td> The system cannot process the error because no
+storage is available. The storage held is not
+released. The system cannot be used until it is
+restarted.    </td><td> Contact the system administrator to restart RODM.    </td></tr>
+			<tr><td>  211   </td><td> The system cannot process the error because no
+storage is available. The storage held is not
+released. The system cannot be used until it is
+restarted.    </td><td>  Contact the system administrator to restart RODM   </td></tr>
+			<tr><td>  212   </td><td>The system cannot complete the transaction
+because an unrecoverable error occurred. RODM
+will write a type-2 log record to the RODM log.     </td><td>Check the content of the log record for
+information about the transaction that caused the
+abend. See the IBM Tivoli NetView for z/OS
+Troubleshooting Guide for information on
+diagnosing abend problems.     </td></tr>
+			<tr><td> 213    </td><td>  The requested function did not complete because
+an abend occurred when RODM accessed the
+interface blocks of the application or method   </td><td> Check the interface blocks for errors that can cause
+address exceptions. See the IBM Tivoli NetView for
+z/OS Troubleshooting Guide for information on
+diagnosing abend problems.    </td></tr>
+			<tr><td>  216   </td><td>Not used.     </td><td>None     </td></tr>
+			<tr><td>   240  </td><td>  The RODM transaction did not complete normally.
+An ABEND might have occurred.   </td><td>  Check the RODM log for information on the
+specific error that occurred. After correcting the
+error, repeat the transaction   </td></tr>
+			<tr><td> 600    </td><td>  An EKG_QueryMultipleSubfields request issued
+by the correlation function failed for one real
+object.   </td><td>   Ignore this error if the correlation function
+performed correctly. If the correlation function did
+not perform correctly, contact IBM Software
+Support.  </td></tr>
+			<tr><td>601     </td><td>An EKG_QueryMultipleSubfields request issued
+by the correlation function failed for one aggregate
+object.     </td><td> Ignore this error if the correlation function
+performed correctly. If the correlation function did
+not perform correctly, contact IBM Software
+Support.    </td></tr>
+			<tr><td>  602   </td><td> An EKG_ChangeMultipleFields request issued by
+the correlation function failed for one aggregate
+object.    </td><td>  Ignore this error if the correlation function
+performed correctly. If the correlation function did
+not perform correctly, contact IBM Software
+Support.   </td></tr>
+			<tr><td>  603   </td><td> An EKG_Locate request issued by the correlation
+function failed for one real object.    </td><td>  Ignore this error if the correlation function
+performed correctly. If the correlation function did
+not perform correctly, contact IBM Software
+Support.   </td></tr>
+			<tr><td>   603  </td><td> An EKG_Locate request issued by the correlation
+function failed for one real object.    </td><td>  Ignore this error if the correlation function
+performed correctly. If the correlation function did
+not perform correctly, contact IBM Software
+Support.   </td></tr>
+			
+			<b>Reason</b>
+		<table rules="rows">
+		<tr><th>Code</th><th>Description</th><th>Corrective Action</th></tr>
+			<tr><td> 604    </td> <td>  An aggregateSystem object was not created by the
+correlate function because the correlatable value
+was less than 2 characters in length      </td><td>   Ignore this error if the correlation function
+performed correctly. If the correlation function did
+not perform correctly, contact IBM Software
+Support.      </td></tr>
+			<tr><td>  605   </td> <td>An EKG_CreateObject request issued by the
+correlate function failed for one aggregate object.        </td><td>  Ignore this error if the correlation function
+performed correctly. If the correlation function did
+not perform correctly, contact IBM Software
+Support.       </td></tr>
+			<tr><td>    606 </td> <td> An EKG_TriggerOIMethod request issued by the
+correlate function failed to link to a
+DisplayResourceType for one aggregate object.       </td><td>  Ignore this error if the correlation function
+performed correctly. If the correlation function did
+not perform correctly, contact IBM Software
+Support.       </td></tr>
+			<tr><td>45085      </td> <td>  Not Used      </td><td>None         </td></tr>
+			<tr><td>  45083   </td> <td> An error occurred when the objects in a view
+changed       </td><td>  An error occurred when the objects in a view
+changed       </td></tr>
+			<tr><td>     </td> <td>        </td><td>         </td></tr>
+			
+			<center>	<h3>List of Reason Codes for Each Function</h3></center>
+			<blockquote><h5>Table 201 lists the function IDs of the RODM API functions and the reason codes
+returned by each function.</h5>
+			<h6>Table 201. Reason Codes for API Functions</h6>
+			<b>Reason</b>
+		<table rules="rows">
+		
+			<tr><th>   Function ID</th><th>Reason Codes</th></tr>
+			<tr><td>Common reason codes for user API </td><td>0 1 2 3 5 6 8 9 10 13 14 15 16 17 20 23 25 131
+199 200 211 212 213 240</td></tr>
+			<tr><td>   Common reason codes for method API     </td><td>  0 10 18 20 192   </td></tr>
+			<tr><td>     1100   </td><td> 12    </td></tr>
+			<tr><td>   1101     </td><td>  12 30 84 109 127 128 130 179 198 207   </td></tr>
+			<tr><td>   1102     </td><td> 180 198    </td></tr>
+			<tr><td>    1201    </td><td>  35 36 37 38 202   </td></tr>
+			<tr><td>      1202  </td><td> 85 202    </td></tr>
+			<tr><td>   1302     </td><td> 24 52 86 87 121 122 124 136 140 163 165 186
+32768 32769 32770 32772    </td></tr>
+			<tr><td>  1303      </td><td>24 52 89 90 136 140 163 165 32768 32769
+32770 32772     </td></tr>
+			<tr><td>    1304    </td><td>52 91 92 93 94 95 96 97 100 121 122 126 139
+140 159 160 163 164 165 166     </td></tr>
+			<tr><td>  1305      </td><td>52 60 98 103 139 140 144 163 164 165 166     </td></tr>
+			<tr><td>  1306      </td><td>52 100 103 104 122 139 140 148 163 164 165
+166 187     </td></tr>
+			<tr><td>   1307     </td><td> 52 60 98 103 106 139 140 144 146 163 164 165
+166 187    </td></tr>
+			
+			<tr><td>  1401      </td><td> 24 26 42 52 54 56 57 65 66 67 80 81 122 133
+134 135 136 139 140 142 145 147 150 163 164
+165 166 176 194 195 215 230 231 232 32768
+32769 32770 32771 32772    </td></tr>
+				</table>
+			Table 201. Reason Codes for API Functions (continued)
+			<table rules="rows">
+		
+			<tr><th>   Function ID</th><th>Reason Codes</th></tr>
+			<tr><td>   1402     </td><td> 24 26 39 52 54 56 57 65 66 67 80 81 122 133
+134 135 136 138 139 140 142 145 147 150 163
+164 165 166 176 194 195 215 230 231 232
+32768 32769 32770 32772    </td></tr>
+			<tr><td>  1403      </td><td>  26 52 54 56 57 61 62 65 66 67 70 71 81 122 135
+139 140 142 145 147 150 163 164 165 166 176
+195 215 230 231 232   </td></tr>
+			<tr><td> 1404       </td><td>26 39 52 54 56 57 61 62 65 66 67 70 71 81 122
+135 138 139 140 142 145 147 150 163 164 165
+166 176 195 215 230 231 232     </td></tr>
+			<tr><td>1405        </td><td>24 52 54 56 57 72 73 74 122 133 136 139 140
+141 145 150 163 164 166 214 220 32768 32769
+32770 32772     </td></tr>
+			<tr><td>1406        </td><td>52 54 56 57 72 73 74 122 133 139 140 141 145
+150 163 164 166 214     </td></tr>
+			<tr><td> 1407       </td><td>24 52 54 56 57 73 74 75 133 136 139 140 145
+150 163 164 166 214 220 32768 32769 32770
+32772     </td></tr>
+			<tr><td>  1408      </td><td>52 54 56 57 73 74 75 133 139 140 145 150 163
+164 166 214     </td></tr>
+			<tr><td> 1409       </td><td>22 24 34 52 63 107 109 110 121 122 136 140
+150 156 159 163 165 170 177 214 604 605
+32768 32769 32770 32772     </td></tr>
+			<tr><td>1410        </td><td>22 24 52 54 57 81 107 108 111 113 136 140 150
+163 170 191 214 32768 32769 32770 32772     </td></tr>
+			<tr><td>1411        </td><td> 40 41 52 54 56 57 61 62 65 67 70 71 122 139
+140 145 150 163 164 165 166    </td></tr>
+			<tr><td> 1412       </td><td>22 52 54 56 57 76 77 81 112 122 135 139 140
+150 156 163 164 165 166 173     </td></tr>
+			<tr><td>1413        </td><td>22 52 54 56 57 76 77 113 135 139 140 150 163
+164 165 166     </td></tr>
+			<tr><td>1415        </td><td>42 52 54 56 57 80 81 82 115 136 139 140 150
+163 164 165 166 191 194 214 32768 32771     </td></tr>
+			<tr><td> 1416       </td><td> 11 42 80 81 191 194    </td></tr>
+			<tr><td> 1417       </td><td>22 52 54 57 77 109 112 122 135 140 150 156
+163 173 214     </td></tr>
+			<tr><td> 1418       </td><td>22 52 54 57 77 109 113 135 140 150 163 214     </td></tr>
+			<tr><td>1419        </td><td> 24 26 42 52 54 56 57 65 66 67 80 81 122 133
+134 135 136 139 140 142 145 147 150 163 164
+165 166 176 194 215 223 227 230 231 232 602
+32768 32769 32770 32771 32772    </td></tr>
+			<tr><td> 1501       </td><td> 19 27 42 52 54 56 57 80 83 136 139 140 143
+150 163 164 165 166 194 208    </td></tr>
+			<tr><td> 1502       </td><td>19 27 52 54 56 57 61 62 83 136 139 140 143
+150 163 164 165 166 208     </td></tr>
+			<tr><td> 1503       </td><td>19 27 52 54 57 83 139 140 150 163 164 165 166
+208     </td></tr>
+			<tr><td>1504        </td><td>19 27 52 54 56 57 83 139 140 150 163 164 165
+166 208     </td></tr>
+				Table 201. Reason Codes for API Functions (continued)
+			<table rules="rows">
+		
+			<tr><th>   Function ID</th><th>Reason Codes</th></tr>
+				
+				
+				
+				
+			<tr><td>  1505      </td><td>19 27 56 139 164 166 208     </td></tr><tr><td>1506        </td><td> 19 27 52 54 56 57 83 139 140 150 163 164 165
+166 208    </td></tr>
+				<tr><td> 1507       </td><td>19 22 27 44 54 57 83 183 208     </td></tr>
+				<tr><td> 1508       </td><td>27 52 56 83 139 140 150 163 164 165 166 223
+600 601     </td></tr>
+				<tr><td>1509        </td><td>139 164 166 224 225 227 228 229 603     </td></tr>
+				<tr><td> 1510       </td><td>46 47 120     </td></tr>
+				<tr><td>1600        </td><td>21 79 83 117     </td></tr>
+				<tr><td> 2001       </td><td> 27 83    </td></tr>
+				<tr><td> 2002       </td><td> 21 52 54 118    </td></tr>
+				<tr><td>2004        </td><td>27 83 201 203 204     </td></tr>
+				<tr><td> 2005       </td><td>22 50 157 158 174 175 181 182     </td></tr>
+				<tr><td>  2006      </td><td>28 29 33 193 45086     </td></tr>
+			<tr><td>  2008      </td><td> 28 29 33    </td></tr>
+			<tr><td>2011        </td><td>19 27 54 169 208     </td></tr>
+			<tr><td> EKGWAIT       </td><td> 209 210    </td></tr>
+			
+			
+			
+				</table>	</table></blockquote>
+				<h3>List of Functions for Each Reason Code</h3>
+				<blockquote>
+			<table rules="rows">
+		
+			<tr><th>   Function ID</th><th>Reason Codes</th></tr>
+			<tr><td>   0     </td><td>Common reason code for user API and
+method API.     </td></tr>
+				<tr><td>    2    </td><td>Common reason code for user API     </td></tr>
+				<tr><td>    3    </td><td>Common reason code for user API     </td></tr>
+				<tr><td>    4    </td><td>Common reason code for user API     </td></tr>
+				<tr><td>    5    </td><td>Common reason code for user API     </td></tr>
+				<tr><td>    6    </td><td>Common reason code for user API     </td></tr>
+				<tr><td>    7    </td><td>Common reason code for user API     </td></tr>
+				<tr><td>    8    </td><td>Common reason code for user API     </td></tr>
+				<tr><td>    9    </td><td>Common reason code for user API     </td></tr>
+				<tr><td>     10   </td><td>Common reason code for user API and
+method API     </td></tr>
+				<tr><td>  11      </td><td>1416     </td></tr>
+				<tr><td>  12      </td><td> 1100 1101    </td></tr>
+				<tr><td>    13    </td><td>Common reason code for user API     </td></tr>
+				<tr><td>    14    </td><td>Common reason code for user API     </td></tr>
+				<tr><td>    15   </td><td>Common reason code for user API     </td></tr>
+				<tr><td>      16  </td><td>Common reason code for user API     </td></tr>
+				
+				<table rules="rows">
+		
+			<tr><th>   Function ID</th><th>Reason Codes</th></tr>
+			<tr><td>    17   </td><td>Common reason code for user API     </td></tr>
+				<tr><td>      18  </td><td>Common reason code for user API     </td></tr>	
+				
+				<tr><td> 19       </td><td>1501 1502 1503 1504 1505 1506 1507 2011     </td></tr>
+				<tr><td>  20      </td><td>Common reason code for user API and
+method API     </td></tr>
+				<tr><td>  21      </td><td>1600 2002     </td></tr>
+				<tr><td>  22      </td><td> 1409 1410 1412 1413 1417 1418 1507 2005    </td></tr>
+				<tr><td> 23       </td><td>Common reason code for user API     </td></tr>
+				<tr><td>  24      </td><td>1302 1303 1401 1402 1405 1407 1409 1410 1419     </td></tr>
+				
+				<tr><td> 25       </td><td>Common reason code for user API     </td></tr>
+				<tr><td>  26      </td><td>1401 1402 1403 1404 1419     </td></tr>
+				<tr><td> 27       </td><td> 1501 1502 1503 1504 1505 1506 1507 1508 2001
+2004 2011    </td></tr>
+					<tr><td>28        </td><td>2006 2008     </td></tr>
+				
+				<tr><td> 29       </td><td>2006 2008     </td></tr>
+				<tr><td>30        </td><td>1101     </td></tr>
+				<tr><td> 33       </td><td>2006 2008     </td></tr>
+			<tr><td>   34     </td><td>1409     </td></tr>
+					<tr><td>35        </td><td>1201     </td></tr>
+					<tr><td> 36       </td><td>1201     </td></tr>
+					<tr><td> 37       </td><td>1202     </td></tr>
+					<tr><td>  38      </td><td>1201     </td></tr>
+					<tr><td> 39       </td><td>1402 1404     </td></tr>
+					<tr><td> 40       </td><td>1411     </td></tr>
+					<tr><td> 41       </td><td>1412     </td></tr>
+					<tr><td>  42      </td><td>1401 1402 1415 1416 1419 1501     </td></tr>
+					<tr><td>  44      </td><td>1507     </td></tr>
+					<tr><td>  46      </td><td>1510     </td></tr>
+					<tr><td>  47      </td><td>1510     </td></tr>
+					<tr><td>  50      </td><td>2005     </td></tr>
+					<tr><td>   52     </td><td>1302 1303 1304 1305 1306 1307 1401 1402 1403
+1404 1405 1406 1407 1408 1409 1410 1411 1412
+1413 1415 1417 1418 1419 1501 1502 1503 1504
+1506 1508 2002     </td></tr>
+					<tr><td> 54       </td><td> 1401 1402 1403 1404 1405 1406 1407 1408 1410
+1411 1412 1413 1415 1417 1418 1419 1501 1502
+1503 1504 1506 1507 2002 2011    </td></tr>
+					<tr><td> 56       </td><td>1401 1402 1403 1404 1405 1406 1407 1408 1411
+1412 1413 1415 1419 1501 1502 1504 1505 1506
+1508     </td></tr>
+					<tr><td>  57      </td><td>1401 1402 1403 1404 1405 1406 1407 1408 1410
+1411 1412 1413 1415 1417 1418 1419 1501 1502
+1503 1504 1506 1507     </td></tr>
+					
+					<table rules="rows">
+		Table 202. Function IDs for Each Reason Code (continued)
+			<tr><th>   Function ID</th><th>Reason Codes</th></tr>
+						<tr><td>  60      </td><td> 1305 1307    </td></tr>
+					<tr><td>        61</td><td>  1403 1404 1411 1502   </td></tr>
+						<tr><td>      62  </td><td> 1403 1404 1411 1502    </td></tr>
+						<tr><td>        63</td><td>1409     </td></tr>
+						<tr><td> 65       </td><td>1401 1402 1403 1404 1411 1419     </td></tr>
+						<tr><td>   66     </td><td>1401 1402 1403 1404 1419     </td></tr>
+						<tr><td>     67   </td><td>1401 1402 1403 1404 1411 1419     </td></tr>
+						<tr><td>   70     </td><td>1403 1404 1411     </td></tr>
+						
+						<tr><td>   71     </td><td>1403 1404 1411     </td></tr><tr><td> 72       </td><td> 1405 1406    </td></tr>
+						
+						<tr><td> 73       </td><td> 1405 1406 1407 1408    </td></tr>
+						<tr><td>  74      </td><td>  1405 1406 1407 1408   </td></tr>
+						<tr><td>  75      </td><td> 1407 1408    </td></tr>
+						<tr><td>  76      </td><td> 1412 1413    </td></tr>
+						<tr><td> 77       </td><td>1412 1413 1417 1418     </td></tr>
+						<tr><td>  79      </td><td>1600     </td></tr>
+						<tr><td> 80       </td><td>1401 1402 1415 1416 1419 1501     </td></tr>
+						<tr><td>  81      </td><td>1401 1402 1403 1404 1410 1412 1415 1416 1419     </td></tr>
+						<tr><td>  82      </td><td> 1415    </td></tr>
+						<tr><td>        </td><td> 1501 1502 1503 1504 1506 1507 1508 1600 2001
+2004    </td></tr>
+						<tr><td>   84     </td><td>  1101   </td></tr>
+						<tr><td>    85    </td><td>1202     </td></tr>
+						<tr><td>    86    </td><td>     </td></tr>
+						<tr><td>    87    </td><td>    1302
+ 1302 </td></tr>
+						<tr><td>   88     </td><td>  1302   </td></tr>
+						<tr><td>     89   </td><td>1302     </td></tr>
+						<tr><td>       90 </td><td> 1303    </td></tr>
+						<tr><td>91        </td><td>1304     </td></tr>
+						<tr><td>  92      </td><td>1304     </td></tr>
+						<tr><td>    93    </td><td>1304     </td></tr>
+						<tr><td>      94  </td><td>1304     </td></tr>
+						<tr><td>        95</td><td>1304     </td></tr>
+						<tr><td>     96   </td><td>1304     </td></tr>
+						<tr><td>   97     </td><td>1304     </td></tr>
+						<tr><td>    98    </td><td>1305 1307     </td></tr>
+						<tr><td> 100       </td><td>1304 1306     </td></tr>
+						<tr><td>  103      </td><td>1305 1306 1307     </td></tr>
+						<tr><td>  104      </td><td>  1306   </td></tr>
+						<tr><td>  106      </td><td> 1307    </td></tr>
+						<tr><td>  107      </td><td>1409 1410     </td></tr>
+			
+					</table>
+					
+					
+	
+			</blockquote>
+			</table>
+					<table rules="rows">
+						<tr><th>Reason Code</th><th>Function ID</th></tr>
+					<tr><td>108</td><td> 1410</td></tr>
+<tr><td>109 </td><td>1101 1409 1417 1418</td></tr>
+<tr><td>110</td><td> 1409</td></tr>
+<tr><td>111</td><td> 1410</td></tr>
+<tr><td>112</td><td> 1412 1417</td></tr>
+<tr><td>113</td><td> 1410 1413 1418</td></tr>
+<tr><td>115</td><td> 1415</td></tr>
+<tr><td>117 </td><td>1600</td></tr>
+<tr><td>118</td><td>2002</td></tr>
+<tr><td>120</td><td> 1510</td></tr>
+<tr><td>121</td><td> 1302 1304 1409</td></tr>
+<tr><td>122 </td><td>1302 1304 1306 1401 1402 1403 1404 1405 1406
+1409 1411 1412 1417 1419</td></tr>
+<tr><td>124</td><td> 1302</td></tr>
+<tr><td>126 </td><td>1304</td></tr>
+<tr><td>127</td><td> 1101</td></tr>
+<tr><td>128</td><td> 1101</td></tr>
+<tr><td>130</td><td> 1101</td></tr>
+<tr><td>131</td><td> Common reason code for user API</td></tr>.
+<tr><td>133</td><td> 1401 1402 1405 1406 1407 1408 1419</td></tr>
+<tr><td>134</td><td> 1401 1402 1419</td></tr>
+						<tr><td>135</td><td> 1401 1402 1403 1404 1412 1413 1417 1418 1419</td></tr>
+						<tr><td>  136   </td><td>1302 1303 1401 1402 1405 1407 1409 1410 1415
+1419 1501 1502      </td></tr>				
+				<tr><td>137        </td><td>1402 1404       </td></tr>	
+				<tr><td>  138      </td><td> 304 1305 1306 1307 1401 1402 1403 1404 1405
+1406 1407 1408 1411 1412 1413 1415 1419 1501
+1502 1503 1504 1505 1506 1508 1509      </td></tr>	
+						<tr><td>   140     </td><td>  1302 1303 1304 1305 1306 1307 1401 1402 1403
+1404 1405 1406 1407 1408 1409 1410 1411 1412
+1413 1415 1417 1418 1419 1501 1502 1503 1504
+1506 1508      </td></tr>
+						<tr><td>141        </td><td>  1405 1406     </td></tr>
+						<tr><td>   142     </td><td> 1401 1402 1403 1404 1419      </td></tr>
+						<tr><td>  143      </td><td>  1501 1502     </td></tr>
+						<tr><td> 144       </td><td> 1305 1307      </td></tr>
+						<tr><td> 145       </td><td> 1401 1402 1403 1404 1405 1406 1407 1408 1411
+1419      </td></tr>
+						<tr><td>  146      </td><td>1307       </td></tr>
+						<tr><td> 147       </td><td> 1401 1402 1403 1404 1419      </td></tr>
+						<tr><td> 148       </td><td> 1306      </td></tr>
+						
+		<pre>
+		<tr><td>150 </td><td>1401 1402 1403 1404 1405 1406 1407 1408 1409</td></tr>
+1410 1411 1412 1413 1415 1417 1418 1419 1501
+1502 1503 1504 1506 1508
+<tr><td>156</td><td> 1409 1412 1417</td></tr>
+<tr><td>157</td><td> 2005</td></tr>
+<tr><td>158</td><td> 2005</td></tr>
+<tr><td>159</td><td> 1304 1409</td></tr>
+<tr><td>160</td><td> 1304</td></tr>
+<tr><td>163</td><td> 1302 1303 1304 1305 1306 1307 1401 1402 1403
+1404 1405 1406 1407 1408 1409 1410 1411 1412
+1413 1415 1417 1418 1419 1501 1502 1503 1504
+1506 1508</td></tr>
+<tr><td>164</td><td> 1304 1305 1306 1307 1401 1402 1403 1404 1405
+1406 1407 1408 1411 1412 1413 1415 1419 1501
+1502 1503 1504 1505 1506 1508 1509</td></tr>
+<tr><td>165 </td><td>1302 1303 1304 1305 1306 1307 1401 1402 1403
+1404 1409 1411 1412 1413 1415 1419 1501 1502
+1503 1504 1506 1508</td></tr>
+<tr><td>166</td><td> 1304 1305 1306 1307 1401 1402 1403 1404 1405
+1406 1407 1408 1411 1412 1413 1415 1419 1501
+1502 1503 1504 1505 1506 1508 1509</td></tr>
+<tr><td>169</td><td> 2011</td></tr>
+<tr><td>170</td><td> 1409 1410</td></tr>
+<tr><td>173 </td><td>1412 1417</td></tr>
+<tr><td>174</td><td> 2005</td></tr>
+<tr><td>175</td><td> 2005</td></tr>
+<tr><td>176</td><td> 1401 1402 1403 1404 1419</td></tr>
+<tr><td>177</td><td> 1409</td></tr>
+<tr><td>179</td><td> 1101</td></tr>
+<tr><td>180</td><td> 1102</td></tr>
+<tr><td>181</td><td> 2005</td></tr>
+<tr><td>182 </td><td>2005</td></tr>
+<tr><td>183</td><td> 1507</td></tr>
+<tr><td>186</td><td> 1302</td></tr>
+<tr><td>187</td><td> 1306 1307</td></tr>
+<tr><td>191</td><td>1410 1415 1416</td></tr>
+<tr><td>192</td><td> Common reason code for method API.</td></tr>
+<tr><td>193</td><td> 2006</td></tr>
+<tr><td>194</td><td> 1401 1402 1415 1416 1419 1501</td></tr>
+<tr><td>195 </td><td>1401 1402 1403 1404</td></tr>
+<tr><td>198 </td><td>1101 1102</td></tr>
+<tr><td>199</td><td> Common reason code for user API.</td></tr>
+<tr><td>200</td><td> Common reason code for user API</td></tr>				
+						
+		<table rules="rows">
+						<tr><th>Reason Code</th><th>Function ID</th></tr>				
+						<tr><td>201</td><td>2004</td></tr>
+<tr><td>202</td><td> 1201 1202</td></tr>
+<tr><td>203</td><td> 2004</td></tr>
+<tr><td>204</td><td> 2004</td></tr>
+<tr><td>207</td><td> 1101</td></tr>
+<tr><td>208</td><td> 1501 1502 1503 1504 1505 1506 1507 2011</td></tr>
+<tr><td>209</td><td> EKGWAIT</td></tr>
+<tr><td>210</td><td> EKGWAIT</td></tr>
+<tr><td>211</td><td> Common reason code for user API.</td></tr>
+<tr><td>212</td><td> Common reason code for user API.</td></tr>
+<tr><td>213</td><td> Common reason code for user API.</td></tr>
+<tr><td>214</td><td> 1405 1406 1407 1408 1409 1410 1415 1417 1418</td></tr>
+<tr><td>215</td><td> 1401 1402 1403 1404 1419</td></tr>
+<tr><td>220</td><td> 1405 1407</td></tr>
+<tr><td>223 </td><td>1419 1508</td></tr>
+<tr><td>224</td><td> 1509</td></tr>
+<tr><td>225</td><td> 1509</td></tr>
+<tr><td>226</td><td> 1101</td></tr>
+<tr><td>227</td><td> 1419 1509</td></tr>
+<tr><td>228</td><td> 1509</td></tr>
+<tr><td>229</td><td> 1509</td></tr>
+<tr><td>230</td><td> 1401 1402 1403 1404 1419</td></tr>
+<tr><td>231</td><td> 1401 1402 1403 1404 1419</td></tr>
+<tr><td>232</td><td> 1401 1402 1403 1404 1419</td></tr>
+<tr><td>240</td><td> Common reason code for user API.</td></tr>
+<tr><td>600</td><td> 1508</td></tr>
+<tr><td>601</td><td> 1508</td></tr>
+<tr><td>602</td><td> 1419</td></tr>
+<tr><td>603</td><td> 1509</td></tr>
+<tr><td>604 </td><td>1409</td></tr>
+<tr><td>605 </td><td>1409</td></tr>
+	<tr><td> 32768     </td><td>1302 1303 1401 1402 1405 1407 1409 1410 1415
+1419        </td></tr>
+	<tr><td>32769      </td><td>1302 1303 1401 1402 1405 1407 1409 1410 1419        </td></tr>
+	<tr><td> 32770     </td><td>  1302 1303 1401 1402 1405 1407 1409 1410 1419      </td></tr>
+	<tr><td>  32771    </td><td>  1401 1415 1419      </td></tr>
+	<tr><td> 32772     </td><td> 1302 1303 1401 1402 1405 1407 1409 1410 1419       </td></tr>
+	<tr><td> 45086     </td><td>  2006      </td></tr>
+	</table>
+	
+	<h2>List of Function Names by Function ID</h2><b>
+Table 203 lists the RODM API function names by their function ID.<br>
+Table 203. Function Names by Function ID</b><br>
+	
+	
+	
+				<table rules="rows">
+						<tr><th>Reason Code</th><th>Function ID</th></tr>						
+						<tr><td>1100</td><td> EKG_ConnectLong</td></tr>
+<tr><td>1101</td><td> EKG_Connect</td></tr>
+<tr><td>1102</td><td> EKG_Disconnect</td></tr>
+<tr><td>1201</td><td> EKG_Checkpoint</td></tr>
+<tr><td>1202</td><td> EKG_Stop</td></tr>
+<tr><td>1302</td><td> EKG_CreateClass</td></tr>
+<tr><td>1303</td><td> EKG_DeleteClass</td></tr>
+<tr><td>1304</td><td> EKG_CreateField</td></tr>
+<tr><td>1305</td><td> EKG_DeleteField</td></tr>
+<tr><td>1306</td><td> EKG_CreateSubfield</td></tr>
+<tr><td>1307</td><td> EKG_DeleteSubfield</td></tr>
+<tr><td>1401</td><td> EKG_ChangeField</td></tr>
+<tr><td>1402</td><td> EKG_SwapField</td></tr>
+<tr><td>1403</td><td> EKG_ChangeSubfield</td></tr>
+<tr><td>1404</td><td> EKG_SwapSubfield</td></tr>
+<tr><td>1405</td><td> EKG_LinkTrigger</td></tr>
+<tr><td>1406</td><td> EKG_LinkNoTrigger</td></tr>
+<tr><td>1407</td><td> EKG_UnLinkTrigger</td></tr>
+<tr><td>1408</td><td> EKG_UnLinkNoTrigger</td></tr>
+<tr><td>1409</td><td> EKG_CreateObject</td></tr>
+<tr><td>1410</td><td> EKG_DeleteObject</td></tr>
+<tr><td>1411</td><td> EKG_RevertToInherited</td></tr>
+<tr><td>1412</td><td> EKG_AddNotifySubscription</td></tr>
+<tr><td>1413</td><td> EKG_DeleteNotifySubscription</td></tr>
+<tr><td>1415</td><td> EKG_TriggerNamedMethod</td></tr>
+<tr><td>1416</td><td> EKG_TriggerOIMethod</td></tr>
+<tr><td>1417 </td><td>EKG_AddObjDelSubs</td></tr>
+<tr><td>1418</td><td> EKG_DelObjDelSubs</td></tr>
+<tr><td>1419</td><td> EKG_ChangeMultipleFields</td></tr>
+<tr><td>1501</td><td> EKG_QueryField</td></tr>
+<tr><td>1502 </td><td>EKG_QuerySubfield</td></tr>
+<tr><td>1503</td><td> EKG_QueryEntityStructure</td></tr>
+<tr><td>1504</td><td> EKG_QueryFieldStructure</td></tr>
+<tr><td>1505</td><td> EKG_QueryFieldID</td></tr>
+<tr><td>1506</td><td> EKG_QueryFieldName</td></tr>
+<tr><td>1507</td><td> EKG_QueryNotifyQueue</td></tr>
+<tr><td>1508</td><td> EKG_QueryMultipleSubfields</td></tr>
+<tr><td>1509</td><td> EKG_Locate</td></tr>
+						
+					<table rules="rows">
+						<tr><th>Reason Code</th><th>Function ID</th></tr>	
+				<tr><td>1510</td><td> EKG_QueryResponseBlockOverflow</td></tr>
+<tr><td>1600</td><td> EKG_ExecuteFunctionList</td></tr>
+<tr><td>2001</td><td> EKG_QueryFunctionBlockContents</td></tr>
+<tr><td>2002</td><td> EKG_LockObjectList</td></tr>
+<tr><td>2003</td><td> EKG_UnlockAll</td></tr>
+<tr><td>2004</td><td> EKG_ResponseBlock</td></tr>
+<tr><td>2005</td><td> EKG_SendNotification</td></tr>
+<tr><td>2006</td><td> EKG_SetReturnCode</td></tr>
+<tr><td>2007</td><td> EKG_WhereAmI</td></tr>
+<tr><td>2008</td><td>EKG_OutputToLog</td></tr>
+<tr><td>2009</td><td> EKG_MessageTriggeredAction</td></tr>
+<tr><td>2011</td><td> EKG_QueryObjectName	</td></tr>
+						
+						
+					
+			<hr><h3>Maximizing RODM Performance</h3>		
+					<blockquote>
+					<dd>This section describes how to maximize system performance while running
+RODM. The structure and size of the data model, the design of methods, and the
+design of user applications all affect performance.</dd>
+						<h3>Data Model Structure and Size</h3>
+						<dd>Execution time for some functions increases as the number of classes between the
+object and the universal class (root) increases. Keep the number of vertical classes
+							to a minimum. For best performance, do not exceed 100 vertical classes</dd>
+						<h3>Method Design</h3>
+						<dd>Use functions that do not trigger methods whenever possible in methods you
+write. This limits the scope of actions resulting from a single transaction and
+reduces system utilization.</dd>
+						<h3>User Application Design</h3>
+						<dd>If you do not need to trigger the query method for a field, and your data model
+contains many vertical classes, you can improve performance by using the query
+subfield function instead of the query field function.<br>
+The RODM notification process uses resources for each notification subscription.
+Delete any unneeded notification subscriptions.</dd>
+						<h3>Customization Parameters and System Fields</h3>
+						<dd>For the best performance, set the RODM logging levels so that logging is kept to a
+minimum. The suggested value for the LOG_LEVEL and MLOG_LEVEL
+customization parameters, and the corresponding EKG_LogLevel and
+EKG_MLogLevel fields in the EKG_User class is 8.
+							<b>Note:</b> Values smaller than 8 can cause GMFHS to report method errors.</dd>
+						<h3>Indexed Fields</h3>
+						<dd>The EKG_Locate function makes it easier for an application to retrieve a list of
+Object IDs. Rather than scanning the entire data model using the query field
+functions, use the EKG_Locate function which scans just the tables that contain the
+Object IDs.<br>
+For better performance, the indexed field must be created before populating the
+data model. Improved performance can also be gained by ensuring that objects
+have indexed field values where the first 254 bytes are unique</dd>
+					</blockquote>		
+			<hr>
+						<h3>Supplied Methods</h3>
+						<blockquote><dd>
+						This section provides a brief introduction to the methods that are supplied with
+the NetView program. These methods are provided with RODM to supply specific
+kinds of functions. You can replace a supplied method and add locally developed
+ones. Supplied methods use the method API. These methods are described in this
+section on a functional basis. All parameters passed to methods are specified as
+							SelfDefining data strings.</dd>
+						<h3>RODM Notification Methods</h3>
+						<dd>In addition to notifying the required subscriber that the data has changed, all
+RODM notification methods return the values of the value, prev_val, and
+timestamp subfields. This data is returned to the subscriber in the User_area of the
+notification queue block. See “EKG_QueryNotifyQueue - Query Notification
+Queue” on page 427 for a description of this block. If the User_area cannot contain
+all the data, a null data string is returned. The order of the data returned is:<br>
+1. The value in the value subfield<br>
+2. The value in the prev_val subfield<br>
+3. The value in the timestamp subfield<br>
+The data type of the returned data is SelfDefining. Each output value is preceded
+by a tag code (corresponding to the numbers 1, 2, and 3 above) to identify which
+subfield the data came from. If a particular subfield is not defined, that tag code is
+not included in the SelfDefining data string. Table 205 is an example of the data
+that is returned in the data string</dd>
+							<dd>Table 205. Example User_data Returned with EKGNOTF Notification Method
+						
+							<b>Reason</b>
+		<table rules="rows">
+		<tr><th>Offset</th><th>Length</th><th>Value</th><th>Description</th></tr>
+				<tr><td> 000   </td><td> 2     </td><td> 34      </td><td> Total length of SelfDefining string       </td></tr>			
+			<tr><td>  002  </td><td>   2   </td><td>     21  </td><td> Smallint data type code       </td></tr>
+			<tr><td>  004  </td><td>   2   </td><td> 01      </td><td> Value field indicator       </td></tr>
+			<tr><td> 006   </td><td> 2     </td><td>  10     </td><td> Value data type flag (Integer)       </td></tr>
+			<tr><td>008    </td><td> 4     </td><td>  value     </td><td> Value data (Integer)       </td></tr>
+			<tr><td> 012   </td><td> 2     </td><td>   21    </td><td>  Smallint data type code      </td></tr>
+			<tr><td>  014  </td><td>  2    </td><td> 02     </td><td>  Prev_val field indicator     </td></tr>
+			<tr><td> 016   </td><td>  2    </td><td>   10    </td><td>Prev_val data type flag (Integer)        </td></tr>
+			<tr><td>   018 </td><td>04      </td><td>preval       </td><td> Prev_val data (Integer)       </td></tr>
+			<tr><td>  022  </td><td> 2     </td><td>  21     </td><td>Smallint data type code        </td></tr>
+			<tr><td> 024   </td><td> 2     </td><td>  23     </td><td>Timestamp field indicator        </td></tr>
+			<tr><td> 026   </td><td>   2   </td><td>   27    </td><td>  Timestamp data type flag (TimeStamp)      </td></tr>
+			<tr><td>   028 </td><td> 8     </td><td>  prestamp     </td><td>  Timestamp data (TimeStamp)      </td></tr></table>
+			The notification methods that are supplied with the NetView program notify
+subscribers only when the data value of the field changes such that the new value
+is different from the old value. In addition, each method must be passed a
+			parameter specifying how the notification must be performed, as follows:
+			<h4>Always</h4><dd>A notification is sent to the subscriber specified to the method through its
+invocation parameters each time the method is run.
+							</dd>
+				<h4>Once</h4><dd>A single notification is generated and the method then deletes itself from
+the field's notification list.			
+							</dd>
+					If a notification method is installed on the field of an object, then when a change is
+made to the object field, the notification subscriptions assigned to that field are
+run. After the notifications of the object are processed, any notification
+subscriptions assigned to the same field in the primary parent are run.
+							<Methods> that perform comparison operations to determine if a notification
+								generated can be assigned only to fields of the following data types:</Methods><br>
+							<ul>
+								<li>Smallint</li>
+								<li>Integer</li>
+								<li> Float</li>
+								<li>TimeStamp</li>
+								<li> CharVar</li>
+							</ul>
+					<h3>EKGNOTF: General Notification</h3>
+					<h4>Function</h4><dd>Notify its subscriber of any change to the associated field value.</dd>
+						<h4>Long-lived-parameters</h4>	
+							<dd>A 2-byte integer code designating the execution option of Always or Once
+								Table 206. EKGNOTF Long-lived-parameter Description</dd>
+						<table rules="rows">
+		<tr><th>Offset</th><th>Length</th><th>Value</th><th>Description</th></tr>	
+						<tr><td>000   </td><td>   2    </td><td> 8     </td><td>Total length of SelfDefining string      </td></tr>	
+						<tr><td>002   </td><td>   2    </td><td> 21     </td><td>Smallint data type code     </td></tr>
+							<tr><td>004   </td><td>   2    </td><td> 1or 2     </td><td>Two byte integer (1=always, 2=once      </td></tr>
+							<tr><td>006   </td><td>   2    </td><td> 21    </td><td><tr><td>000   </td><td>   2    </td><td> 8     </td><td>Total length of SelfDefining string      </td></tr></td></tr>
+							<tr><td>008  </td><td>   2    </td><td> 21     </td><td>Two byte integer (1=notify only if new value is
+different from previous value, 2=notify always)      </td></tr>
+							<b>Short-lived-parameters</b>
+							<dd>None required.</dd>
+							<h3>EKGNEQL: Notify If Equal</h3>
+							<b>Function</b><dd>Notify its subscriber when any change to the associated field value causes
+that field to be equal to the long-lived-parameter. The function must be
+sensitive to all supported RODM data types in order to determine how to
+make the appropriate comparison.</dd>
+							<b>Long-lived-parameters.</b>
+							<dd>A 2-byte integer code designating the execution option of always or once
+followed by the value being tested against the subscribed field. The
+long-lived-parameter specifies a Field_ID within the current object where
+the test value is specified</dd>
+							Table 207. EKGNEQL Long-lived-parameter Description.
+							<table rules="rows">
+		<tr><th>Offset</th><th>Length</th><th>Value</th><th>Description</th></tr>
+								<tr><td> 000    </td><td>  2    </td><td>  14    </td><td> Total length of SelfDefining string       </td></tr>
+							<tr><td>  002   </td><td>   2   </td><td> 21     </td><td> Smallint data type code       </td></tr>
+								<tr><td>  004   </td><td>    2  </td><td> 1or2     </td><td>  Two byte integer (1=always, 2=once)      </td></tr>
+								<tr><td> 006    </td><td> 2     </td><td>   21   </td><td>Smallint data type code        </td></tr>
+								<tr><td> 008    </td><td>   2   </td><td>   1or2   </td><td>  Two byte integer (1=notify only if new value is
+different from previous value, 2=notify always)      </td></tr>
+								<tr><td> 10    </td><td>  2    </td><td> 26     </td><td> Smallint data type code (FieldID       </td></tr>
+								<tr><td> 012    </td><td>   2   </td><td> Feild_ID     </td><td>   Field_ID of test value     </td></tr>
+							<b>Short-lived-parameters</b><dd>None required</dd>
+							<h3>EKGNLST: Notify if Equal to Lis</h3>
+							<b>Function</b><dd>Notify its subscriber when any change to the associated field value causes
+that field to equal one of the values in the long-lived-parameter. The
+function must be sensitive to all supported RODM data types in order to
+determine how to make the appropriate comparison.</dd>
+								<b>Long-lived-parameters</b>
+								<dd>A 2-byte integer code designating the execution option of always or once
+followed by the number of values in the list and the list of values being
+tested against the subscribed field. The long-lived-parameter specifies a
+Field_ID within the current object where the comparison list count is
+specified and a list of Field_IDs where the test values are specified.</dd>
+								<table rules="rows">
+		<tr><th>Offset</th><th>Length</th><th>Value</th><th>Description</th></tr>
+									<tr><td>  000  </td><td> 2   </td><td> 14+(N*6)   </td><td>  Total length of SelfDefining string     </td></tr>
+									<tr><td> 002   </td><td> 2   </td><td>21    </td><td>Smallint data type code       </td></tr>
+									<tr><td> 004   </td><td>  2  </td><tdt>1or2    </tdt><td>  Two byte integer (1=always, 2=once)     </td></tr>
+									<tr><td>  006  </td><td> 2   </td><td>  21  </td><td>Smallint data type code       </td></tr>
+									<tr><td>  008  </td><td>2    </td><tdt>  1or2  </tdt><td>   Two byte integer (1=notify only if new value is
+different from previous value, 2=notify always)    </td></tr>
+									<tr><td> 010   </td><td>2    </td><td>10    </td><td>Smallint data type code (Integer)       </td></tr>
+									<tr><td> 12   </td><td>  4  </td><td>N (range 0..n)    </td><td>   Number of following Field_IDs     </td></tr>
+									<tr><td>016    </td><td>  2  </td><td>26    </td><td>  Smallint data type code (FieldID)     </td></tr>
+									<tr><td> 18   </td><td>  4  </td><td> Field_ID   </td><td> Field_ID of first test value
+Note: Element of array       </td></tr>
+									<tr><td> 010+(N*6)   </td><td>2    </td><td> 26   </td><td> Smallint data type code (FieldID)      </td></tr>
+									<tr><td> 012+(N*6)   </td><td> 4   </td><td>Field_IDField_ID of Nth test value    </td><td>       </td></tr>
+									
+									<b>Short-lived-parameters</b><dd>
+									None required.</dd>
+									
+									
+						<h2>EKGNTHD: Notify If Outside Threshold</h2>		
+								<b>Function</b><dd>Notify its subscriber when any change to the associated field value causes
+that field to fall outside the threshold specified in the long-lived-parameter.
+This method provides three options.
+<ul><li> The user specifies an upper bound. Subscribers are notified if the value
+	of the associated field is greater than the parameter.</li>
+<li> The user specifies a lower bound. Subscribers are notified if the value of
+	the associated field is less than the parameter.</li>
+<li> The user specifies a pair of parameter values. Subscribers are notified if
+value of the associated field is greater than the larger parameter or less
+	than the smaller parameter.</li></ul></dd>
+							<b>Long-lived-parameters</b><dd>A 2-byte integer code designating the execution option of always or once,
+followed by the particular function being performed and the threshold values. The long-lived-parameter specifies a Field_ID within the current
+object where the function code is specified and Field_IDs as required to
+specify the threshold values.</dd>	
+							Table 209. EKGNTHD Long-lived-parameter Description.		
+					<table rules="rows">
+		<tr><th>Offset</th><th>Length</th><th>Value</th><th>Description</th></tr>				
+			<tr><td>  000    </td><td> 2      </td><td>20or26     </td><td>  Total length of SelfDefining string      </td></tr>						
+			<tr><td> 002     </td><td>  2     </td><td>21     </td><td>Smallint data type code        </td></tr>
+						<tr><td>  04    </td><td>   2    </td><td>   1or2  </td><td>Two byte integer (1=always, 2=once)        </td></tr>
+						<tr><td>  06    </td><td> 2      </td><td> 21    </td><td> Smallint data type code       </td></tr>
+						<tr><td>   008   </td><td>  2     </td><td> 1or2    </td><td> Two byte integer (1=notify only if new value is
+different from previous value, 2=notify always)       </td></tr>
+						<tr><td>  010    </td><td>  2     </td><td>10     </td><td> Integer data type code       </td></tr>
+						<tr><td>   012   </td><td> 4      </td><td>1,2or3     </td><td>Option code (1=upper bound, 2=lower bound,
+3=range)        </td></tr>
+						<tr><td> 016     </td><td> 2      </td><td>  26   </td><td> Smallint data type code (FieldID)       </td></tr>
+						<tr><td>  018    </td><td> 4      </td><td>Feiled_ID     </td><td>  For 1, upper bound; for 2 or 3, lower bound      </td></tr><tr> Next parameters for option code 3 only</tr>
+						<tr><td>   022   </td><td> 2      </td><td> 26    </td><td> Smallint data type code (FieldID)       </td></tr>
+						<tr><td>  024    </td><td>4       </td><td>Feiled_ID     </td><td>For 3, upper bound        </td></tr>
+									</table></blockquote>
+						<B>Short-lived-parameters</B>
+						<DD>none required.</DD>
+						
+						<h2>RODM Change Methods</h2>
+								<blockquote>		<h3>EKGCTIM: Trigger Object-Independent Method</h3>
+						<b>Function</b>
+						<dd>Using the message facility, trigger an object-independent method to
+perform some designated function asynchronous to the execution of the
+invoking method. If, for example, the object-independent method is
+intended to communicate with a real status sender, a SWAP function block
+can be passed, in order to communicate old and new value information
+from the field associated with this method. This can let the
+object-independent method tell the real status sender to change a real
+device status from old to new state.</dd>
+					<h4>Long-lived-parameters</h4>
+						<dd>List of Field_IDs where data is provided to build the required function
+block to be passed to the object-independent method. Each consecutive 4
+bytes of this parameter string is interpreted as a FieldID of a field within
+the current object. The specified fields are queried, and the information is
+placed in the function block of the EKG_TriggerOIMethod function.</dd>
+						
+									Table 209. EKGNTHD Long-lived-parameter Description.		
+					<table rules="rows">
+		<tr><th>Offset</th><th>Length</th><th>Value</th><th>Description</th></tr>
+						<tr><td>  000  </td><td> 2      </td><td> 12      </td><td> Total length of SelfDefining string       </td></tr>
+						<tr><td>002    </td><td>2       </td><td> 26      </td><td>Smallint data type code (FieldID)        </td></tr>			
+						<tr><td>  004  </td><td> 4      </td><td>  FieldID     </td><td>  Field containing method name      </td></tr>
+						<tr><td>  008  </td><td>  2     </td><td> 26      </td><td> Smallint data type code (FieldID)       </td></tr>
+						<tr><td> 010   </td><td>  4     </td><td>  FieldID     </td><td>  Field containing Short-lived-parameter list as a
+SelfDefining string      </td></tr>
+						<b>Short-lived-parameters</b>
+						<DD>none required.</DD>
+								</blockquote>
+									<h2>RODM Named Methods</h2><blockquote>
+									<h3>RODM Named Methods</h3>
+									<h5>Function</h5>
+									<dd>Increment the value of a specified field, defined within the current object,
+by a specified value.</dd>
+							<h5>Long-lived-parameters</h5>		
+									<dd>Two Field_IDs are required. The first four bytes of the string specifies the
+Field_ID of field to be incremented. The second four bytes specifies the
+Field_ID of the field containing the increment value. These fields must be
+integer data type and the increment value can be negative causing the
+designated field value to be decremented.</dd>
+									Table 211. EKGMIMV Long-lived-parameter Description
+									
+									<table rules="rows">
+		<tr><th>Offset</th><th>Length</th><th>Value</th><th>Description</th></tr>
+		<tr><td>  000  </td><td>  2     </td><td> 12      </td><td>  Total length of SelfDefining string      </td></tr>
+						<tr><td>002    </td><td>  2     </td><td>  26     </td><td> Smallint data type code (FieldID)       </td></tr>
+						<tr><td>004    </td><td>  4     </td><td> Field_ID       </td><td>Field to be incremented        </td></tr>
+						<tr><td>  008  </td><td> 2      </td><td>  26     </td><td>Smallint data type code (FieldID)        </td></tr>			
+						<tr><td>  010  </td><td>  4     </td><td>  Field_ID     </td><td>   Field containing increment value      </td></tr>			
+									
+							<b>Short-lived-parameters
+</b>	<dd>None required.</dd>	
+							<h3>EKGCTIM: Trigger Object-Independent Method</h3>		
+								This is the same function as the change method described for this function. This
+method, when installed in RODM, can be used in either manner.	
+									
+									
+						</blockquote>
+						<h2>RODM Object-Independent Methods</h2>			
+									<blockquote>
+									<h3>EKGSPPI: Send a command to the NetView Program</h3><dd>The EKGSPPI method is one of the services in the RODM automation platform.
+See Chapter 8, “Using the RODM Automation Platform,” on page 187 for more
+information about automation tasks using NetView. An extensive RODM
+automation scenario using the EKGSPPI method and the automation platform is
+contained in the chapter entitled the IBM Tivoli NetView for z/OS Automation Guide.<br>Function: This object-independent method sends commands to the DSIQTSK task
+in the NetView program. DSIQTSK then dispatches the commands to an autotask,
+which issues the commands. The NetView program supplies two example methods
+that call the EKGSPPI, one change method named EKGCPPI and one
+object-independent method named EKGOPPI. You can use these example methods
+as models for your own methods that trigger EKGSPPI.</dd>
+										<b>Long-lived parameters:</b> None required.
+										<b>Short-lived parameters:</b> EKGSPPI accepts a short-lived parameter with the
+SelfDefining data type. The short-lived parameter contains seven data items. Each
+data item is data type CharVar or data type AnonymousVar. All seven data items
+must appear in the order shown, but some can have a null value. The EKGSPPI
+method deletes leading blank characters from the value specified for each data
+item.<br>
+The names used for the data items are the variable names used in the sample
+methods EKGCPPI and EKGOPPI. The seven data items in the short-lived
+parameter are:
+										<h5>RCVRID_CHARVAR</h5>
+										This data item specifies the name of the command receiver to which EKGSPPI
+sends commands. This is the name supplied on the ID field of the CMDRCVR
+defined in the DSIQTSKI initialization file for the DSIQTSK task. The EKGSPPI
+method converts this name to uppercase. This name has a maximum of 8
+characters.
+										<h5>ASSIST_CHARVAR</h5>
+This data item specifies whether the command is to be sent to a NetView
+operator before it is run. The command is issued in the form of a message
+(DWO670I). If SAVECMD is specified in the automation table trap for
+DWO670I, the command can be saved for the operator that the SAVECMD is
+routed to. The operator can use the ASSISCMD to display the command on the
+panel. The operator can issue, modify, or cancel the command from the
+NetView assist panel. Valid values are:
+										
+										<h5>Value Meaning<br>
+ASSIST</h5>
+				<dd>Send the command to an operator</dd>						
+										
+					<h5>NOASSIST</h5>					
+								<dd>Issue the command without sending it to an operator</dd>		
+									<h5>null or blanks</h5>	
+										<dd>Issue the command without sending it to an operator<br>
+This value has a maximum of 8 characters</dd>
+										<h4>TASKINFO_CHARVAR</h4>
+										This data item specifies whether the command is run by a specific NetView
+										autotask. Valid values are:
+										<b>Value Meaning</b>
+ANY DSIQTSK routes the command to the next autotask (after the most
+recently used autotask) defined to DSIQTSK. Autotasks are used in the
+order in which they are defined in the DSIQTASKI member of
+DSIPARM.
+										<b>ONLY DSIQTSK</b> routes the command to the autotask specified in the
+										
+					short-lived parameter data item TASKNAME_CHARVAR. If the
+specified autotask is not available, the command is not issued.
+<b>ONLYANY
+	DSIQTSK</b> routes the command to the autotask specified in the
+short-lived parameter data item TASKNAME_CHARVAR. If the
+specified autotask is not available, DSIQTSK routes the command to
+the next autotask (after the most recently used autotask) defined to
+DSIQTSK. Autotasks are used in the order in which they are defined in
+the DSIQTASKI member of DSIPARM.
+										<b>null or blanks</b>
+DSIQTSK routes the command to the next autotask (after the most
+recently used autotask) defined to DSIQTSK. Autotasks are used in the
+order in which they are defined in the DSIQTASKI member of
+DSIPARM.					
+			<h5>TASKNAME_CHARVAR</h5>							
+										
+					This data item specifies the name of the autotask that DSIQTSK routes the
+command to. This is the name specified by the TASK statement of DSIQTSKI,
+the initial member of DSIQTSK task. If TASKINFO_CHARVAR is ONLY or
+ONLYANY, TASKNAME_CHARVAR is required. The EKGSPPI method
+converts this name to uppercase. This value has a maximum of 8 characters.
+										<h5>SENDER_CHARVAR</h5>
+This data item identifies the sender of the command for commands which
+specify ASSIST_CHARVAR as ASSIST. This name is included in the message
+sent to the operator. The EKGSPPI method converts this name to uppercase.
+This value has a maximum of 8 characters.
+										<h5>CMD_CHARVAR</h5>
+This data item specifies the command to be issued. A COMMAND_CHARVAR
+value is required. This value has a maximum of 240 characters.
+										<h5>CMD_DESC_CHARVAR</h5>
+This data item specifies a description of the command to be issued. You can
+specify blanks or null for this value. This value has a maximum of 780
+characters. This description is displayed on the assist panel if ASSIST is
+specified for the ASSIST_CHARVAR data item in short-lived parameters.
+										<b>Output:</b> The command is sent to the DSIQTSK task in the NetView program.
+You can run the EKGSPPI method using the RODM load function. Figure 88 on
+page 496 shows an example of invoking EKGSPPI using a RODM load function
+primitive statement.
+Note: The RODM load function is not an APF (authorized program facility)
+authorized program. If the NetView program-to-program interface command
+receiver managed by DSIQTSK requires APF authorization, the job fails and a
+return code of 8 with a reason code of 32832 is issued by the EKGSPPI method					
+								<p><pre>OP EKGSPPI INVOKED_WITH -- Trigger the EKGSPPI method --
+(SELFDEFINING)
+( (CHARVAR) ’CNM01’ -- Command receiver name --
+(CHARVAR) ’NOASSIST’ -- Issue without operator intervention --
+(CHARVAR) ’ONLYANY’ -- Use named autotask if available --
+(CHARVAR) ’AUTO1’ -- Autotask name --
+(CHARVAR) ’LOAD FUN’ -- Name of sender of command --
+(CHARVAR) ’some reasonable command goes here’
+-- Command to be sent --
+(CHARVAR) ’This command is sent using the RODM load function.’
+’ It is an example of triggering the EKGSPPI method ’
+’ using a RODM load function primitive statement.’
+									-- Command description --</pre></p>		
+										</blockquote>
+						<h2>GMFHS Methods</h2>				
+								<dd><pre>The methods described in this section are supplied for use with GMFHS. You can
+also use these methods with automation code that you write.<br>
+Use only these GMFHS methods for the described purposes. For example, do not
+use a named method as an object-independent method.<br>
+In addition to the GMFHS methods described in this section, GMFHS uses other
+methods which cannot be used by your programs. Do not use the methods in this
+list with programs you write:</pre>	</dd>	
+						<ul></ul>				
+						<li> DUIFCAAP</li>
+<li> DUIFCADT</li>
+ <li>DUIFCAPC</li>
+<li> DUIFCASB</li>
+<li> DUIFCATC</li>
+<li> DUIFCCAP</li>
+<li> DUIFCDTC</li>
+<li> DUIFCDUC</li>
+ <li>DUIFCGRA</li>
+ <li>DUIFCGRT</li>
+ <li>DUIFCGR2</li>
+ <li>DUIFCGR3</li>
+ <li>DUIFCLSR</li>
+ <li>DUIFCLS2</li>
+ <li>DUIFCLS3</li>
+ <li>DUIFCMUU</li>
+<li> DUIFCRDC</li>
+<li> DUIFCRTP</li>
+ <li>DUIFCRTU</li>
+ <li>DUIFCRUC</li>
+<li>DUIFCSRT</li>
+<li> DUIFCURA</li>
+<li> DUIFCUTC</li>
+<li> DUIFEGSN</li>
+<li> DUIFITKN</li>
+<li> DUIFRAIP</li>
+ <li>DUIFRRTC</li>
+<li> DUIFVCVT</li>
+<li> DUIFVDRT</li>
+ <li>DUIFVEFC</li>
+ <li>DUIFVEVF</li>
+<li> DUIFVEXV</li>
+<li> DUIFVFPV</li>
+<li> DUIFVGET</li>
+<li> DUIFVIEW</li>
+<li> DUIFVLST</li>
+<li> DUIFVLTT</li>
+<li> DUIFVMDR</li>
+<li> DUIFVNGI</li>
+<li> DUIFVNGN</li>
+<li> DUIFVNOI</li>
+<li> DUIFVNOT</li>
+<li> DUIFVPFR</li>
+<li> DUIFVSUB</li>
+<li> DUIFVTKN</li>
+<li> DUIFVUNS</li>
+<li> DUIFVUPD</li>
+<li> DUIFVVLC</li>
+ 	
+								<h4>DUIFCCAN: Clear All Notes</h4>
+This object-independent method can be run by any application to clear the note
+field on all UserStatus flags for all real and aggregate objects in RODM.<br>
+								<b>Function:</b> Use the DUIFCCAN method to clear all note fields without going
+through the topology console for each real and aggregate object. An operator ID of
+"DUIFCCAN" will be set to indicate that the note was cleared by this method,
+instead of an operator.<br>
+								<b>Input:</b> This method does not require input parameters and can be triggered with
+the following RODM load function primitive statement:
+OP DUIFCCAN INVOKED WITH;<br>
+								<b>Output: </b>If this method encounters errors, it sets a return and reason code and
+writes a type 1 record to the RODM log. Table 204 on page 487 lists the reason
+codes that can be returned by this method.						
+										
+				<ul>			<h3>DUIFCLRT: Link Resource Type Method</h3>			
+				This method is an object-independent method that is run to link or unlink:
+<li> The DisplayResourceType field of a real, aggregate, or shadow object to the
+	Resources field of an object of the Display_Resource_Type_Class.<br></li>
+<li> The DisplayResourceType field of a View_Information_Reference_Object to the
+	Resources field of an object of the Display_Resource_Type_Class.</li>
+					<b>Function:</b> Use the DUIFCLRT method to ensure that the DisplayStatus field value
+of the affected aggregate resources is recalculated when the DisplayResourceType
+field of a real or aggregate resource is changed. These changes might occur:
+<li> If the DisplayResourceType value of a GMFHS_Managed_Real_Objects_Class
+object is changed, the DefaultAggregationPriorityCopy value of that object might
+need to be changed. If this change affects the effective aggregation priority of
+that real resource, the aggregate resources affected by that change must be
+updated and their DisplayStatus values recalculated. To make this change, the
+	DUIFCLRT method triggers the DUIFCAPC method.</li>
+<li> If the DisplayResourceType link is changed in an object of the
+GMFHS_Aggregate_Objects_Class, GMFHS recalculates the DisplayStatus field
+	value for that aggregate</li>						
+						<br>The DUIFCLRT method cannot be triggered by other methods, including the
+EKGLISLM and EKGLIILM initialization methods. Do not trigger the DUIFCUAP
+method using another method.<br>
+Figure 89 is an example of triggering the DUIFCLRT method using a RODM load
+function primitive statement.<br>
+OP DUIFCLRT INVOKED_WITH (SELFDEFINING)
+(
+(SMALLINT) 1
+(CHARVAR) ’’
+(CHARVAR) ’Display_Resource_Type_Class.DUIXC_RTN_NN_DOMAIN_AGG’
+(OBJECTID) ’View_Information_Reference_Class’.
+’1.3.18.0.0.2150_Reference’
+);<br>
+<b>Input:</b> Specify the input parameters to the DUIFCLRT method using three of the
+four items in a SELFDEFINING data type. The items are summarized in Table 212,
+followed by a complete description of each item.
+				
+			<table rules="rows">
+		<tr><th>Item</th><th>Description</th><th>Data Type</th><th>Required/Optional</th></tr>
+		<tr><td> ▌1▐   </td><td>  Link or unlink     </td><td> CHARVAR or
+SMALLINT      </td><td>  Required      </td></tr>							
+					<tr><td> ▌2   </td><td> Resource object      </td><td> CHARVAR or
+OBJECTID      </td><td>  Optional 1      </td></tr>
+						<tr><td> ▌3   </td><td>  Display resource type     </td><td>  CHARVAR or
+OBJECTID     </td><td>   Required     </td></tr>
+				<tr><td>▌4    </td><td>View information
+reference object       </td><td>CHARVAR or
+OBJECTID       </td><td>Optional 1        </td></tr>
+						1 Either the Resource Object or the View Information Resource Object must be specified;
+however, both cannot be specified<br>				
+								<li> ▌1▐ The first item specifies the operation, and can be the CHARVAR data type or
+									the SMALLINT data type. Valid values are:</li>
+				Table 213. Input Values for DUIFCLRT Operation<br>
+				<table rules="rows">
+				<tr><th>Operation</th><th>CHARVAR</th><th>SMALLINT</th></tr>
+				<tr><td>Link resources</td><td>LINK</td><td>1</td></tr>
+				<tr><td>Unlink resources</td><td>UNLINK</td><td>2</td></tr>
+				
+			<li>	▌2▐ The second item specifies the real, aggregate, or shadow object being linked
+				or unlinked, and can be the CHARVAR data type or the OBJECTID data type.</li>
+This item is optional, however, if it is not specified, the fourth item must be
+specified. If you are not specifying this item, the null character must be
+specified. For example, use the following code:<br>
+(CHARVAR) ’’
+For a CHARVAR item, specify the class name and the object name separated
+with a period. For an OBJECTID item, specify the class name within single
+quotation marks and the object name within single quotation marks, separated
+by a period. For example, use the following code:<br>
+(CHARVAR) ’Display_Resource_Type_Class.DUIXC_RTN_NN_DOMAIN_AGG’
+(OBJECTID) ’Display_Resource_Type_Class’.’DUIXC_RTN_NN_DOMAIN_AGG’<br>
+										
+				<p>If the class name or object name used in a CHARVAR data item contains a
+period, enclose the name in two single quotation marks. For example, if the class
+name was Class.name, use the following code:
+(CHARVAR)’Class.name’.Object’<br>
+If the class name or object name used in a CHARVAR or OBJECTID data item
+contains a single quotation mark (') character, use two single quotation marks to
+specify the single quotation mark. For example, if the name of an object was 
+Greg’sObject, use the following code:
+(CHARVAR)’Class.Greg’sObject’<br>
+<li> ▌3▐The third item specifies the Display_Resource_Type_Class object being linked
+or unlinked. This item is required. The format for the third item is the same as
+the format for the second item.<br></li>
+<li> ▌4▐The fourth item specifies the View_Information_Reference _Object being
+linked or unlinked. This item is optional; however, if it is not specified, the
+second item must be specified. If you are not specifying this item, the null
+character must be specified. For example, use the following code:</li>
+(CHARVAR) ’<br>
+The format for the fourth item is the same as the format for the second item.
+Output: The link or unlink is performed.<br>
+If this method encounters errors, it sets a return and reason code and writes a
+type1 record to the RODM log. Table 204 on page 487 lists the reason codes that
+can be returned by this method.<h3>
+DUIFCUAP: Update Aggregation Path Method</h3>
+This is an object-independent method which is to be run whenever two resource
+objects are to be linked or unlinked using the AggregationChild field in an object
+of the GMFHS_Aggregate_Objects_Class and the AggregationParent field in a
+different GMFHS_Aggregate_Objects_Class object or
+GMFHS_Managed_Real_Objects_Class object.<br>
+<b>Function:</b> Use this method to ensure that the "Value." (count) fields and the
+DisplayStatus field value in the aggregate resource and its aggregation ancestors
+above the link or unlink are updated to reflect the addition (for a link) or deletion
+(for an unlink) of real resource aggregation descendants.<br>
+Use of this method also prevents the introduction of loops into the aggregation
+hierarchy. An aggregation hierarchy loop occurs when the AggregationParent field
+of an aggregate object contains a link to the AggregationChild field of the same
+object or to an object that has an AggregationParent field that is linked either
+directly or through other aggregate objects to the AggregationChild field of the
+first aggregate object.<br>
+While GMFHS is operating, use only the DUIFCUAP method to add aggregate
+resources to or delete aggregate resources from aggregation hierarchies. Note that
+this requirement is not enforced by RODM.<br>
+GMFHS only uses the DUIFCUAP method indirectly, using the RODM load
+function because GMFHS does not otherwise change the aggregation hierarchy.
+The DUIFCUAP method cannot be triggered by other methods, including the
+EKGLISLM and EKGLIILM initialization methods. Do not trigger DUIFCUAP.</p><br>
+		
+				using another method. Figure 90 is an example of triggering the DUIFCUAP
+method using a RODM load function primitive statement.<br>	
+			<p><pre>OP DUIFCUAP INVOKED_WITH (SELFDEFINING)
+((CHARVAR)’LINK’
+(CHARVAR)’GMFHS_Aggregate_Objects_Class.ETHERNET’
+(CHARVAR)’GMFHS_Aggregate_Objects_Class.WESTCTR’);
+Input: Specify the input parameters to the DUIFCUAP method using three items
+in a SELFDEFINING data type.<br>
+v The first item specifies the operation, and can be the CHARVAR data type or the
+SMALLINT data type. Valid values are:<br>
+Table 214. Input Values for DUIFCUAP Operation</pre></p>	  	
+					
+			<table rules="rows">
+		<tr><th>Operation </th><th>CHARVAR</th><th>SMALLINT</th></tr>		
+				<tr><td>Link resources</td><td>LINK</td><td>1</td></tr>	
+				<tr><td>UnLink resources</td><td>UNLINK</td><td>2</td></tr>	</table></table></table></blockquote></blockquote></table></table></table></table></table></table></table></table></table>
+					<li>The second item specifies the real or aggregate object being linked or unlinked
+that is lower in the aggregation hierarchy. This data item can be the CHARVAR
+data type or the OBJECTID data type. For a CHARVAR item, specify the class
+name and the object name separated with a period. For an OBJECTID item,
+specify the class name within single quotation marks and the object name within
+						single quotation marks, separated by a period. For example:</li>
+(CHARVAR)’GMFHS_Aggregate_Objects_Class.ETHERNET’<br>
+(OBJECTID)’GMFHS_Aggregate_Objects_Class’.’ETHERNET’<br>
+If the class name or object name used in a CHARVAR data item contains a
+period, enclose the name in two single quotation marks. For example, if the class
+name was Class.name, code:<br>
+(CHARVAR)’Class.name’.Object’<br>
+If the class name or object name used in a CHARVAR or OBJECTID data item
+contains a single quotation mark (') character, use two single quotation marks to
+specify the single quotation mark. For example, if the name of an object was
+Greg’sObject, code:<br>
+(CHARVAR)’Class.Greg’sObject’<br>
+<li> The third item specifies the aggregate object being linked or unlinked that is
+higher in the aggregation hierarchy. The format for the third item is the same as
+	the format for the second item.</li>
+<b>Output:</b> The link or unlink is performed.
+If this method encounters errors, it sets a return and reason code and writes a type
+1 record to the RODM log. Table 204 on page 487 lists the reason codes that can be
+returned by this method.<br><h3>
+	DUIFCUUS: Update User Status Method</h3>
+This is a named method installed on the UpdateUserStatus field of all objects
+under the GMFHS_Displayable_Objects_Parent class during the initial RODM
+structure load for GMFHS. The GMFHS_Monitorable_Objects_Class inherits this
+method.<br>
+			<b>Function:</b> Use this method for any application that must change the UserStatus
+field value of any descendent class of GMFHS_Displayable_Objects_Parent_Class,
+					
+		   </table></table></table></table></ul>
+										
+						
+										
+										
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
